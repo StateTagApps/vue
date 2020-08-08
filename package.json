@@ -1,0 +1,84 @@
+{
+  "name": "reservation-cnd",
+  "version": "0.1.01",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "build-url": "^2.0.0",
+    "lodash": "^4.17.19",
+    "minimist": "^1.2.5",
+    "v-calendar": "^1.0.6",
+    "vue": "^2.6.11",
+    "vue-axios": "^2.1.5",
+    "vue-custom-element": "^3.2.14",
+    "vue-moment": "^4.1.0",
+    "vue-nprogress": "^0.1.5",
+    "vue-octicon": "^2.1.1",
+    "vue-paginate": "^3.6.0",
+    "vue-router": "^3.3.2",
+    "vue-typeahead": "github:fuqu-io/vue-typeahead#master",
+    "vue2-google-maps": "github:thebackoffice/vue2-google-maps",
+    "vuex": "^3.4.0",
+    "vuex-persist": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/runtime-corejs3": "^7.10.2",
+    "@vue/cli-plugin-babel": "^4.4.1",
+    "@vue/cli-plugin-eslint": "^4.4.1",
+    "@vue/cli-service": "^4.4.1",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "^1.0.3",
+    "axios-mock-adapter": "^1.18.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.5.1",
+    "babel-preset-env": "^1.7.0",
+    "core-js": "^3.6.5",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
+    "jest": "^25.5.4",
+    "jest-css-modules": "^2.1.0",
+    "node-sass": "^4.14.1",
+    "prettier": "^1.19.1",
+    "regenerator-runtime": "^0.13.5",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "vue-jest": "^3.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.42.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(vue)$": "vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,vue}",
+      "!**/node_modules/**",
+      "!**/dist/**",
+      "!**/coverage/**",
+      "!**config.js",
+      "!src/main.js"
+    ],
+    "coverageReporters": [
+      "html",
+      "text-summary"
+    ]
+  }
+}
