@@ -74,7 +74,7 @@ Vue.filter("date", function (value, format) {
 });
 
 
-import TextHtml from "./components/TextHtml";
+import TextHtml from "./x-tags/TextHtml";
 
 TextHtml.store = store;
 Vue.customElement("x-text-html", TextHtml);

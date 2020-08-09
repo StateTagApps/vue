@@ -18,23 +18,39 @@
     <link rel="icon" type="image/png" sizes="32x32" href="//favicon.StateTagApp.com/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="//favicon.StateTagApp.com/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="//favicon.StateTagApp.com/favicon-16x16.png">
-    <link rel="manifest" href="//favicon.StateTagApp.com/manifest.json">
 
     <title>STA HelloWorld</title>
 
-    <link rel="stylesheet" href="x-tags.css">
-    <script src="x-tags-config.js"></script>
-    <script src="x-tags-event-listener.js"></script>
-
+    <link rel="stylesheet" href="sta.css">
+    <script src="sta-config.js"></script>
+    <script src="sta-event-listener.js"></script>
 
 </head>
 <body>
 
+<p>This JSON was fetched from a <a href="https://github.com/StateTagApp/data/blob/master/HelloWorld/TextHtml.json" target="_blank">here</a>.</p>
 <code><x-text-html src="/HelloWorld/TextHtml.json"></x-text-html></code>
 
+<p>When we assign a "property" attribute, the tag will target and display just one property from the JSON.</p>
 <h1>
+    <x-text-html src="/HelloWorld/TextHtml.json" property="en"></x-text-html>,
+    <x-text-html src="/HelloWorld/TextHtml.json" property="es"></x-text-html>,
     <x-text-html src="/HelloWorld/TextHtml.json" property="fr"></x-text-html>
 </h1>
 
+<h2>View Source</h2>
+Please take a look at the source code for <b>this page</b> in your browser as well as <b>YourProject/src/x-tags/TextHtml</b>.
+
+<h2>How it works...</h2>
+<p>
+    This boiler plate comes with one pre-defined x-html tag usable via &lt;x-text-html/&gt; and having several attributes and behaviors pre-defined.
+    <br/>You can view the source for this tag within YourProject/src/x-tags/TextHtml
+</p>
+<p>The lifecycle of the tag goes something like this&hellip;</p>
+<ol>
+    <li>Upon instantiation, the required 'src' attribute is used to load JSON from a server.</li>
+    <li>Next, the optional 'property' attribute is used to target a property within the JSON.</li>
+    <li>Note, that if the optional 'property' target is not set then all the data is displayed.</li>
+</ol>
 </body>
 </html>
