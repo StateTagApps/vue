@@ -14,46 +14,49 @@
     <link rel="apple-touch-icon" sizes="144x144" href="//favicon.StateTagApp.com/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="//favicon.StateTagApp.com/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="//favicon.StateTagApp.com/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="//favicon.StateTagApp.com/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="//favicon.StateTagApp.com/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="//favicon.StateTagApp.com/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="//favicon.StateTagApp.com/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="//favicon.StateTagApp.com/favicon-16x16.png">
 
+    <!-- start: STA CUSTOMIZATIONS -->
     <title>STA HelloWorld</title>
 
-    <script src="js/sta-config.js"></script>
-    <script src="js/sta-event-listener.js"></script>
+    <link rel=preload href=/css/custom.css as=style>
+    <link rel=preload href=/js/sta-config.js as=script>
+    <link rel=preload href=/js/sta-event-listener.js as=script>
 
-    <style>
-        code{
-            font-family: monospace;
-            white-space: pre;
-
-            display: block;
-            border: 1px dashed #cccccc;
-            background: #efefef;
-        }
-    </style>
+    <link rel=stylesheet href=/css/custom.css>
+    <script src="/js/sta-config.js"></script>
+    <script src="/js/sta-event-listener.js"></script>
+    <!-- end: STA CUSTOMIZATIONS -->
 
 </head>
 <body>
 
-<p>This JSON was fetched from a <a href="https://github.com/StateTagApp/data/blob/master/HelloWorld/TextHtml.json" target="_blank">here</a>.</p>
-<code><x-text-html src="/HelloWorld/TextHtml.json"></x-text-html></code>
+<p>This JSON was fetched from a <a href="https://github.com/StateTagApp/data/blob/master/HelloWorld/TextHtml.json"
+                                   target="_blank">here</a>.</p>
+<code>
+    <x-text-html src="/HelloWorld/TextHtml.json"></x-text-html>
+</code>
 
 <p>When we assign a "property" attribute, the tag will target and display just one property from the JSON.</p>
 <h1>
-    <x-text-html src="/HelloWorld/TextHtml.json" property="en"></x-text-html>,
-    <x-text-html src="/HelloWorld/TextHtml.json" property="es"></x-text-html>,
+    <x-text-html src="/HelloWorld/TextHtml.json" property="en"></x-text-html>
+    ,
+    <x-text-html src="/HelloWorld/TextHtml.json" property="es"></x-text-html>
+    ,
     <x-text-html src="/HelloWorld/TextHtml.json" property="fr"></x-text-html>
 </h1>
 
 <h2>View Source</h2>
-Please take a look at the source code for <b>this page</b> in your browser as well as <b>YourProject/src/x-tags/TextHtml</b>.
+Please take a look at the source code for <b>this page</b> in your browser as well as
+<b>YourProject/src/x-tags/TextHtml</b>.
 
 <h2>How it works...</h2>
 <p>
-    This boiler plate comes with one pre-defined x-html tag usable via &lt;x-text-html/&gt; and having several attributes and behaviors pre-defined.
+    This boiler plate comes with one pre-defined x-html tag usable via &lt;x-text-html/&gt; and having several
+    attributes and behaviors pre-defined.
     <br/>You can view the source for this tag within YourProject/src/x-tags/TextHtml
 </p>
 <p>The lifecycle of the tag goes something like this&hellip;</p>
