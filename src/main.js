@@ -41,9 +41,9 @@ import Mixins from "./mixins";
 
 Vue.use(Mixins);
 
-import Server from "./server";
+import Api from "./api";
 
-Vue.use(Server);
+Vue.use(Api);
 
 import state from "./state";
 

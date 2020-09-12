@@ -6,8 +6,8 @@ import buildUrl from "build-url";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
-stateTagApp.server = stateTagApp.servers[process.env.NODE_ENV]
-let SERVER_URL = stateTagApp.server.concat("/tag-app")
+stateTagApp.api = stateTagApp.apis[process.env.NODE_ENV]
+let API_URL = stateTagApp.api.concat("/tag-app")
 const requests = {};
 
 NProgress.configure({
@@ -24,7 +24,7 @@ axios.interceptors.request.use(
     function (config) {
         let data = {
             type: "animation",
-            from: "server",
+            from: "api",
             event: 'unknown',
             app: "stateTagApp"
         }
@@ -56,7 +56,7 @@ axios.interceptors.response.use(
     function (response) {
         let data = {
             type: "animation",
-            from: "server",
+            from: "api",
             event: 'unknown',
             app: "stateTagApp"
         }
@@ -75,7 +75,7 @@ axios.interceptors.response.use(
     function (error) {
         let data = {
             type: "animation",
-            from: "server",
+            from: "api",
             event: 'unknown',
             app: "stateTagApp"
         }
@@ -113,7 +113,7 @@ export default {
                     return cancel.token;
                 },
 
-                server: function (endpoint, caller, post) {
+                api: function (endpoint, caller, post) {
                     let config = {};
                     let headers = {};
 

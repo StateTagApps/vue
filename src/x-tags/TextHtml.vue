@@ -76,14 +76,14 @@ export default {
     setContentFromSrc: function (src) {
 
       if(src.indexOf('http') !== 0){
-        src = stateTagApp.server
+        src = stateTagApp.api
             .concat(src)
       }
 
       var data = this.$data;
       var property = this.property
 
-      this.server(src, 'setContentFromSrc')
+      this.api(src, 'setContentFromSrc')
           .then(function (response) {
             if (_.isEmpty(property)) {
               data.privateContent = response.data;

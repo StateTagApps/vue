@@ -16,7 +16,7 @@ const stateTagApp = {
         date: 'Y-MM-DD',
     },
 
-    servers: {
+    apis: {
         production: "https://data.StateTagApp.com",
         development: "https://data.StateTagApp.com"
     }
