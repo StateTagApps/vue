@@ -83,7 +83,7 @@ export default {
       var data = this.$data;
       var property = this.property
 
-      this.hit(src, 'setContentFromSrc')
+      this.server(src, 'setContentFromSrc')
           .then(function (response) {
             if (_.isEmpty(property)) {
               data.privateContent = response.data;

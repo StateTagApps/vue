@@ -113,7 +113,7 @@ export default {
                     return cancel.token;
                 },
 
-                hit: function (endpoint, caller, post) {
+                server: function (endpoint, caller, post) {
                     let config = {};
                     let headers = {};
 

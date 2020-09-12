@@ -45,9 +45,9 @@ import Server from "./server";
 
 Vue.use(Server);
 
-import store from "./store";
+import state from "./state";
 
-store.watch(
+state.watch(
     function (state) {
 
     },
@@ -76,11 +76,11 @@ Vue.filter("date", function (value, format) {
 
 import TextHtml from "./x-tags/TextHtml";
 
-TextHtml.store = store;
+TextHtml.state = state;
 Vue.customElement("x-text-html", TextHtml);
 
 stateTagApp["commands"] = {
     endSession: function () {
-        store.dispatch("reset");
+        state.dispatch("reset");
     }
 };
