@@ -11,9 +11,9 @@
   "dependencies": {
     "axios": "^0.19.2",
     "build-url": "^2.0.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "minimist": "^1.2.5",
-    "vue": "^2.6.11",
+    "vue": "^2.6.12",
     "vue-axios": "^2.1.5",
     "vue-custom-element": "^3.2.14",
     "vue-moment": "^4.1.0",
@@ -24,11 +24,11 @@
   },
   "devDependencies": {
     "@babel/runtime-corejs3": "^7.11.2",
-    "@vue/cli-plugin-babel": "^4.5.3",
-    "@vue/cli-plugin-eslint": "^4.5.3",
-    "@vue/cli-service": "^4.5.3",
+    "@vue/cli-plugin-babel": "^4.5.6",
+    "@vue/cli-plugin-eslint": "^4.5.6",
+    "@vue/cli-service": "^4.5.6",
     "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/test-utils": "^1.0.3",
+    "@vue/test-utils": "^1.1.0",
     "axios-mock-adapter": "^1.18.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
@@ -46,7 +46,7 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "vue-jest": "^3.0.6",
-    "vue-template-compiler": "^2.6.11",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.1"
   },
   "jest": {
