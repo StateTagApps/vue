@@ -43,6 +43,11 @@ export default {
       type: String,
       default: null
     },
+
+    service: {
+      type: String,
+      default: ['api','socket','state'][0]
+    }
   },
 
   data: function () {
@@ -83,7 +88,7 @@ export default {
       var data = this.$data;
       var property = this.property
 
-      this.api(src, 'setContentFromSrc')
+      this.$api(src, 'setContentFromSrc')
           .then(function (response) {
             if (_.isEmpty(property)) {
               data.privateContent = response.data;
@@ -98,6 +103,10 @@ export default {
 
   mounted: function () {
     this.setContentFromSrc(this.src);
+
+    this.$socket.$subscribe('timecast', payload => {
+      console.log(payload)
+    });
   }
 }
 </script>

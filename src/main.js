@@ -42,8 +42,16 @@ import Mixins from "./mixins";
 Vue.use(Mixins);
 
 import Api from "./api";
-
 Vue.use(Api);
+
+import VueSocketIOExt from 'vue-socket.io-extended';
+import io from 'socket.io-client';
+
+if (!_.isUndefined(stateTagApp.socket)) {
+    stateTagApp.socket = stateTagApp.socket[process.env.NODE_ENV];
+    const socket = io(stateTagApp.socket);
+    Vue.use(VueSocketIOExt, socket);
+}
 
 import state from "./state";
 

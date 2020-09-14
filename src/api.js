@@ -6,8 +6,8 @@ import buildUrl from "build-url";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
-stateTagApp.api = stateTagApp.apis[process.env.NODE_ENV]
-let API_URL = stateTagApp.api.concat("/tag-app")
+stateTagApp.api = stateTagApp.api[process.env.NODE_ENV]
+
 const requests = {};
 
 NProgress.configure({
@@ -100,7 +100,6 @@ export default {
 
             methods: {
 
-
                 privateAutoCancel: function (caller, uid) {
                     let key = caller + '-' + uid;
 
@@ -113,7 +112,7 @@ export default {
                     return cancel.token;
                 },
 
-                api: function (endpoint, caller, post) {
+                $api: function (endpoint, caller, post) {
                     let config = {};
                     let headers = {};
 
@@ -135,18 +134,18 @@ export default {
                             type: 'api',
                             from: caller.split('-')[0],
                             event: response.status,
-                            data: response.data
+                            message: 'success'
+                            //data: response.data
                         });
                     }
                         .bind(caller))
                         .catch(function (error) {
-
                             try {
                                 stateTagApp.broadcast({
                                     type: 'api',
                                     from: caller.split('-')[0],
                                     event: error.response.status,
-                                    error: error.response.data.message
+                                    message: error.response.statusText
                                 });
                             } catch (e) {
                                 //probably cancelled
