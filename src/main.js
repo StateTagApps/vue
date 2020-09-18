@@ -72,10 +72,10 @@ import XHtml from "./html";
 
 Vue.use(XHtml);
 
-import TextHtml from "./x-html/TextHtml";
-
-TextHtml.state = state;
-Vue.customElement("x-text-html", TextHtml);
+import Manifest from "@/x-html/manifest";
+for (let tag in Manifest){
+    Vue.customElement(tag, Manifest[tag]);
+}
 
 stateTagApp["commands"] = {
 
