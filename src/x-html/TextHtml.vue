@@ -107,6 +107,7 @@ export default {
 
     this.$socket.$subscribe('timecast', payload => {
       console.log(payload)
+      this.greet(payload.stamp)
     });
 
     var greet = this.greet;
