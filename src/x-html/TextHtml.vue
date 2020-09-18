@@ -108,7 +108,9 @@ export default {
       //console.log(payload)
     });
 
-
+    var url = _.buildUrl('https://yada.com', {path: "/calendar/{start}/{end}/{type}/{target}"});
+    console.log(url);
+    console.log(_.isUrl(url));
   }
 }
 </script>
