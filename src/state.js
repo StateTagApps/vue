@@ -9,7 +9,7 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const state = new Vuex.Store({
     plugins: [vuexPersist.plugin],
 
     state: {
@@ -23,14 +23,38 @@ export default new Vuex.Store({
     },
 
     mutations: {
+        applyGreeting: function (state, payload){
+            state.greeting = payload;
+        },
+
         applyReset: function (state) {
             state.greeting = "Knock, knock...";
         },
     },
 
     actions: {
+        greet: ({commit, state}, payload) => {
+            commit("applyGreeting", payload);
+        },
+
         reset: ({commit, state}, payload) => {
             commit("applyReset");
         }
     }
 });
+
+state.watch(
+    function (state) {
+        return state.greeting;
+    },
+    function (fresh, stale) {
+        let log = 'greeting was changed from '
+            .concat(stale)
+            .concat(' to ')
+            .concat(fresh);
+
+        console.log(log);
+    }
+);
+
+export default state;

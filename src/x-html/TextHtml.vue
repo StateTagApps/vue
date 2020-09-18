@@ -105,8 +105,10 @@ export default {
     this.setContentFromSrc(this.src);
 
     this.$socket.$subscribe('timecast', payload => {
-      console.log(payload)
+      //console.log(payload)
     });
+
+
   }
 }
 </script>

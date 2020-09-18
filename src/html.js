@@ -1,4 +1,4 @@
-const Mixins = {
+const Html = {
     install(Vue, opts) {
         Vue.mixin({
             methods: {
@@ -57,4 +57,4 @@ const Mixins = {
     }
 };
 
-export default Mixins;
+export default Html;

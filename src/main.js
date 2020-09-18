@@ -37,9 +37,8 @@ Vue.prototype._ = _;
 Vue.config.productionTip = false;
 Vue.use(vueCustomElement);
 
-import Mixins from "./mixins";
-
-Vue.use(Mixins);
+import XHtml from "./html";
+Vue.use(XHtml);
 
 import Api from "./api";
 Vue.use(Api);
@@ -55,14 +54,6 @@ if (!_.isUndefined(stateTagApp.socket)) {
 
 import state from "./state";
 
-state.watch(
-    function (state) {
-
-    },
-    function (fresh, stale) {
-
-    }
-);
 
 Vue.filter('fromCamelToWords', function (str) {
     return str
@@ -82,12 +73,17 @@ Vue.filter("date", function (value, format) {
 });
 
 
-import TextHtml from "./x-tags/TextHtml";
+import TextHtml from "./x-html/TextHtml";
 
 TextHtml.state = state;
 Vue.customElement("x-text-html", TextHtml);
 
 stateTagApp["commands"] = {
+
+    changeGreeting: function (value){
+        state.dispatch("greet", value)
+    },
+
     endSession: function () {
         state.dispatch("reset");
     }
