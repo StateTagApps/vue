@@ -77,6 +77,7 @@ export default {
   },
 
   methods: {
+    ...mapActions(['greet']),
 
     setContentFromSrc: function (src) {
 
@@ -108,6 +109,10 @@ export default {
       console.log(payload)
     });
 
+    var greet = this.greet;
+    this.$nextTick(function(){
+      greet('yo a playa');
+    }.bind(greet));
   }
 }
 </script>

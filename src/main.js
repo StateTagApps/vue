@@ -74,6 +74,7 @@ Vue.use(XHtml);
 
 import Manifest from "@/x-html/manifest";
 for (let tag in Manifest){
+    Manifest[tag].store = state;
     Vue.customElement(tag, Manifest[tag]);
 }
 
