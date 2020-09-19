@@ -69,8 +69,7 @@ export default {
         case (this.privateLoading):
           return {
             api: 'loading...',
-            socket: 'connecting...',
-            state: ''
+            socket: 'connecting...'
           }[this.service];
           break;
 
