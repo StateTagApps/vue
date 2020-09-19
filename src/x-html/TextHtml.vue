@@ -65,7 +65,6 @@ export default {
           break;
 
         case (!_.isNull(this.privateContent)):
-
           return this.privateContent;
           break;
 
