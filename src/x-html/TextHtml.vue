@@ -128,7 +128,6 @@ export default {
 
     }
 
-
     var greet = this.greet;
     this.$nextTick(function () {
       greet('yo a playa');
