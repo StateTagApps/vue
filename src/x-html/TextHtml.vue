@@ -39,14 +39,14 @@ export default {
       default: false
     },
 
-    src: {
-      type: String,
-      default: null
-    },
-
     service: {
       type: String,
-      default: ['api','socket','state'][0]
+      default: ['api', 'socket', 'state'][0]
+    },
+
+    src: {
+      required: true,
+      type: String
     }
   },
 
@@ -61,7 +61,11 @@ export default {
     content: function () {
       switch (true) {
         case (this.privateLoading):
-          return 'loading...';
+          return {
+            api: 'loading...',
+            socket: 'connecting...',
+            state: ''
+          }[this.service];
           break;
 
         case (!_.isNull(this.privateContent)):
@@ -78,11 +82,22 @@ export default {
   methods: {
     ...mapActions(['greet']),
 
+    listenForContentFromSocket: function (src) {
+      this.$socket.$subscribe(src, payload => {
+        if (_.isEmpty(this.property)) {
+          this.privateContent = payload;
+        } else {
+          this.privateContent = _.get(payload, this.property);
+        }
+        this.privateLoading = false;
+      });
+    },
+
     setContentFromSrc: function (src) {
 
-      if(src.indexOf('http') !== 0){
+      if (src.indexOf('http') !== 0) {
         src = stateTagApp.api
-            .concat(src)
+            .concat(src);
       }
 
       var data = this.$data;
@@ -102,15 +117,20 @@ export default {
   },
 
   mounted: function () {
-    this.setContentFromSrc(this.src);
+    switch (this.service) {
+      case 'api':
+        this.setContentFromSrc(this.src);
+        break;
 
-    this.$socket.$subscribe('timecast', payload => {
-      console.log(payload)
-      this.greet(payload.stamp)
-    });
+      case 'socket':
+        this.listenForContentFromSocket(this.src);
+        break;
+
+    }
+
 
     var greet = this.greet;
-    this.$nextTick(function(){
+    this.$nextTick(function () {
       greet('yo a playa');
     }.bind(greet));
   }
