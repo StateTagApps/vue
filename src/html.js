@@ -5,6 +5,9 @@ const Html = {
         Vue.mixin({
             computed: {
                 ...mapGetters(['$state']),
+                $onSocket: function (){
+                    return this.$socket.$subscribe;
+                },
             },
 
             methods: {

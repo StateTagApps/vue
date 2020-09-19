@@ -86,8 +86,8 @@ export default {
 
   methods: {
 
-    listenForContentFromSocket: function (channel) {
-      this.$socket.$subscribe(channel, payload => {
+    listenForContentFromSocket: function (event) {
+      this.$onSocket(event, payload => {
         if (_.isEmpty(this.property)) {
           this.privateContent = payload;
         } else {
