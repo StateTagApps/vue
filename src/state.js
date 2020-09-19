@@ -13,17 +13,17 @@ const state = new Vuex.Store({
     plugins: [vuexPersist.plugin],
 
     state: {
-        greeting: "Knock, knock..."
+        msg: {en: "This text is inside state.js"}
     },
 
     getters: {
-        g: (state, getters) => (locator) => {
+        $state: (state, getters) => (locator) => {
             return _.get(state, locator);
         },
     },
 
     mutations: {
-        applyGreeting: function (state, payload){
+        applyGreeting: function (state, payload) {
             state.greeting = payload;
         },
 

@@ -1,11 +1,17 @@
+import {mapGetters} from "vuex";
+
 const Html = {
     install(Vue, opts) {
         Vue.mixin({
-            methods: {
-                broadcast : stateTagApp.broadcast,
+            computed: {
+                ...mapGetters(['$state']),
+            },
 
-                announce : function(tag, type, io, payload){
-                    payload = (!_.isUndefined(payload))? {...payload, type, io} : {type, io};
+            methods: {
+                broadcast: stateTagApp.broadcast,
+
+                announce: function (tag, type, io, payload) {
+                    payload = (!_.isUndefined(payload)) ? {...payload, type, io} : {type, io};
 
                     this.broadcast({
                         type: 'tag',
@@ -16,7 +22,7 @@ const Html = {
                 },
 
                 devLog: function (msg) {
-                    if(process.env.NODE_ENV !== "production"){
+                    if (process.env.NODE_ENV !== "production") {
                         console.log(msg)
                     }
                 },
@@ -28,10 +34,10 @@ const Html = {
                         // tag-specs="div,div.amazing,div|h1,h2,div.description&div.nested-deeper,div|div,div"
 
                         var str = nesting[k];
-                        while(str.indexOf('&') !== -1){
+                        while (str.indexOf('&') !== -1) {
                             str = str.replace('&', '|');
                         }
-                        while(str.indexOf('||') !== -1) {
+                        while (str.indexOf('||') !== -1) {
                             str = str.replace('||', '&');
                         }
 
@@ -49,7 +55,7 @@ const Html = {
                 },
 
                 tagClasses: function (spec, additional_classes) {
-                    additional_classes = (typeof additional_classes == 'undefined')? '': ' '.concat(additional_classes);
+                    additional_classes = (typeof additional_classes == 'undefined') ? '' : ' '.concat(additional_classes);
                     return spec.split('.').splice(1).join([' ']).concat(additional_classes);
                 }
             }

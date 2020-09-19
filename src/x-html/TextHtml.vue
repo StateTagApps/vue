@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import {mapState, mapActions, mapMutations, mapGetters} from "vuex";
 
 export default {
 
@@ -58,6 +57,7 @@ export default {
   },
 
   computed: {
+
     content: function () {
       switch (true) {
         case (this.privateLoading):
@@ -80,10 +80,9 @@ export default {
   },
 
   methods: {
-    ...mapActions(['greet']),
 
-    listenForContentFromSocket: function (src) {
-      this.$socket.$subscribe(src, payload => {
+    listenForContentFromSocket: function (channel) {
+      this.$socket.$subscribe(channel, payload => {
         if (_.isEmpty(this.property)) {
           this.privateContent = payload;
         } else {
@@ -113,6 +112,15 @@ export default {
             data.privateLoading = false;
           }.bind(data)
               .bind(property));
+    },
+
+    displayContentFromState: function (target) {
+      if (_.isEmpty(this.property)) {
+        this.privateContent = this.$state(target);
+      } else {
+        this.privateContent = _.get(this.$state(target), this.property);
+      }
+      this.privateLoading = false;
     }
   },
 
@@ -124,6 +132,10 @@ export default {
 
       case 'socket':
         this.listenForContentFromSocket(this.src);
+        break;
+
+      case 'state':
+        this.displayContentFromState(this.src)
         break;
 
     }
