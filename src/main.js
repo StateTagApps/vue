@@ -80,11 +80,7 @@ for (let tag in Manifest){
 
 stateTagApp["commands"] = {
 
-    changeGreeting: function (value) {
-        state.dispatch("greet", value)
-    },
-
-    endSession: function () {
-        state.dispatch("reset");
+    setMsg: function (value) {
+        state.dispatch("setMsg", value)
     }
 };

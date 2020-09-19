@@ -60,6 +60,12 @@ export default {
 
     content: function () {
       switch (true) {
+        case (this.service == 'state'):
+          return (_.isEmpty(this.property))
+              ? this.$state(this.src)
+              : _.get(this.$state(this.src), this.property);
+          break;
+
         case (this.privateLoading):
           return {
             api: 'loading...',
@@ -112,15 +118,6 @@ export default {
             data.privateLoading = false;
           }.bind(data)
               .bind(property));
-    },
-
-    displayContentFromState: function (target) {
-      if (_.isEmpty(this.property)) {
-        this.privateContent = this.$state(target);
-      } else {
-        this.privateContent = _.get(this.$state(target), this.property);
-      }
-      this.privateLoading = false;
     }
   },
 
@@ -135,15 +132,9 @@ export default {
         break;
 
       case 'state':
-        this.displayContentFromState(this.src)
+        this.privateLoading = false;
         break;
-
     }
-
-    var greet = this.greet;
-    this.$nextTick(function () {
-      greet('yo a playa');
-    }.bind(greet));
   }
 }
 </script>

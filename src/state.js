@@ -10,7 +10,7 @@ const vuexPersist = new VuexPersist({
 Vue.use(Vuex);
 
 const state = new Vuex.Store({
-    plugins: [vuexPersist.plugin],
+    //plugins: [vuexPersist.plugin],
 
     state: {
         msg: {en: "This text is inside state.js"}
@@ -23,36 +23,24 @@ const state = new Vuex.Store({
     },
 
     mutations: {
-        applyGreeting: function (state, payload) {
-            state.greeting = payload;
-        },
-
-        applyReset: function (state) {
-            state.greeting = "Knock, knock...";
-        },
+        applyMsg: function (state, payload) {
+            state.msg = payload;
+        }
     },
 
     actions: {
-        greet: ({commit, state}, payload) => {
-            commit("applyGreeting", payload);
-        },
-
-        reset: ({commit, state}, payload) => {
-            commit("applyReset");
+        setMsg: ({commit, state}, payload) => {
+            commit("applyMsg", payload);
         }
     }
 });
 
 state.watch(
     function (state) {
-        return state.greeting;
+        return state.msg;
     },
     function (fresh, stale) {
-        let log = 'greeting was changed from '
-            .concat(stale)
-            .concat(' to ')
-            .concat(fresh);
-
+        let log = 'msg was changed!'
         console.log(log);
     }
 );
