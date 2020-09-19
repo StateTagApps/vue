@@ -10,7 +10,7 @@ const vuexPersist = new VuexPersist({
 Vue.use(Vuex);
 
 const state = new Vuex.Store({
-    //plugins: [vuexPersist.plugin],
+    plugins: [vuexPersist.plugin],
 
     state: {
         msg: {en: "This text is inside state.js"}
