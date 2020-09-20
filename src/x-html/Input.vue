@@ -1,7 +1,7 @@
 <template>
   <div>
     <input type="text" v-model="txt">
-    <button @click="save">submit</button>
+    <button @click="submit">submit</button>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     return {txt: ''}
   },
   methods: {
-    save: function () {
+    submit: function () {
       this.$write('msg.en', this.txt);
       this.txt = '';
     }
