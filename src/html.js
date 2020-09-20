@@ -12,8 +12,11 @@ const Html = {
 
             methods: {
                 ...mapActions(['write']),
-                broadcast: stateTagApp.broadcast,
+                $write: function (locator, value){
+                    this.write({locator, value})
+                },
 
+                broadcast: stateTagApp.broadcast,
                 announce: function (tag, type, io, payload) {
                     payload = (!_.isUndefined(payload)) ? {...payload, type, io} : {type, io};
 
@@ -23,10 +26,6 @@ const Html = {
                         event: 'ready',
                         payload
                     });
-                },
-
-                $write: function (locator, value){
-                    this.write({locator, value})
                 },
 
                 devLog: function (msg) {
