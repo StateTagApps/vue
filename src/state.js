@@ -17,20 +17,20 @@ const state = new Vuex.Store({
     },
 
     getters: {
-        $state: (state, getters) => (locator) => {
+        $read: (state, getters) => (locator) => {
             return _.get(state, locator);
         },
     },
 
-    mutations: {
-        applyMsg: function (state, payload) {
-            state.msg = payload;
+    actions: {
+        write: ({commit, state}, payload) => {
+            commit("applyState", payload);
         }
     },
 
-    actions: {
-        setMsg: ({commit, state}, payload) => {
-            commit("applyMsg", payload);
+    mutations: {
+        applyState: function (state, payload) {
+            _.set(state, payload.locator, payload.value)
         }
     }
 });

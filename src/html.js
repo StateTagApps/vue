@@ -1,16 +1,17 @@
-import {mapGetters} from "vuex";
+import {mapGetters, mapActions} from "vuex";
 
 const Html = {
     install(Vue, opts) {
         Vue.mixin({
             computed: {
-                ...mapGetters(['$state']),
+                ...mapGetters(['$read']),
                 $onSocket: function (){
                     return this.$socket.$subscribe;
                 },
             },
 
             methods: {
+                ...mapActions(['write']),
                 broadcast: stateTagApp.broadcast,
 
                 announce: function (tag, type, io, payload) {
@@ -22,6 +23,10 @@ const Html = {
                         event: 'ready',
                         payload
                     });
+                },
+
+                $write: function (locator, value){
+                    this.write({locator, value})
                 },
 
                 devLog: function (msg) {

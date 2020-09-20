@@ -61,9 +61,14 @@ export default {
     content: function () {
       switch (true) {
         case (this.service == 'state'):
-          return (_.isEmpty(this.property))
-              ? this.$state(this.src)
-              : _.get(this.$state(this.src), this.property);
+          let locator = this.src;
+
+          if (!_.isEmpty(this.property)) {
+            locator = locator.concat('.')
+                .concat(this.property)
+          }
+
+          return this.$read(locator);
           break;
 
         case (this.privateLoading):
