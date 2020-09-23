@@ -16,11 +16,11 @@ const Html = {
                     this.write({locator, value})
                 },
 
-                broadcast: stateTagApp.broadcast,
+                dispatch: stateTagApp.dispatch,
                 announce: function (tag, type, io, payload) {
                     payload = (!_.isUndefined(payload)) ? {...payload, type, io} : {type, io};
 
-                    this.broadcast({
+                    this.dispatch({
                         type: 'tag',
                         from: tag,
                         event: 'ready',

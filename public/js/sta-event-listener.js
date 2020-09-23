@@ -1,14 +1,14 @@
 function stateTagAppEventListener(m) {
-    let message;
+    let staEvent;
     try {
-        message = JSON.parse(m.data)
+        staEvent = JSON.parse(m.data)
     } catch (e) {
         return;
     }
-    if (typeof message.app == 'undefined' || message.app != 'stateTagApp') {
+    if (typeof staEvent.app == 'undefined' || staEvent.app != 'stateTagApp') {
         return;
     }
-    console.log(message)
+    console.log(staEvent)
 
     /**
      * HANDLERS

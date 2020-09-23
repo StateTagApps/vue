@@ -130,7 +130,7 @@ export default {
                     }
 
                     promis.then(function (response) {
-                        stateTagApp.broadcast({
+                        stateTagApp.dispatch({
                             type: 'api',
                             from: caller.split('-')[0],
                             event: response.status,
@@ -141,7 +141,7 @@ export default {
                         .bind(caller))
                         .catch(function (error) {
                             try {
-                                stateTagApp.broadcast({
+                                stateTagApp.dispatch({
                                     type: 'api',
                                     from: caller.split('-')[0],
                                     event: error.response.status,

@@ -38,6 +38,7 @@ if (!_.isUndefined(stateTagApp.socket)) {
 }
 
 import state from "./state";
+stateTagApp["state"] = state;
 
 function bindEvent(element, eventName, eventHandler) {
     if (element.addEventListener) {
@@ -80,5 +81,11 @@ for (let tag in Manifest) {
 }
 
 stateTagApp["commands"] = {
+    setEventContext:function (name){
+        state.dispatch('setEventContext', name);
+    },
 
+    clearBroadcastContext:function (){
+        state.dispatch('setEventContext', null);
+    },
 };
