@@ -81,11 +81,11 @@ for (let tag in Manifest) {
 }
 
 stateTagApp["commands"] = {
-    setEventContext:function (name){
-        state.dispatch('setEventContext', name);
+    setEventContext:function (context_passthru){
+        state.dispatch('setEventContext', context_passthru);
     },
 
-    clearBroadcastContext:function (){
+    clearEventContext:function (){
         state.dispatch('setEventContext', null);
     },
 };
