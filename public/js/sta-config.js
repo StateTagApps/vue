@@ -11,7 +11,9 @@ const stateTagApp = {
         let required = [];
 
         privateValidateStaEvent(data, desired, console.log);
-        if(privateValidateStaEvent(data, required, alert)){
+        if (privateValidateStaEvent(data, required, function (msg) {
+            alert(msg);
+        })) {
             window.parent.postMessage(JSON.stringify(data), '*');
         }
     },
@@ -31,7 +33,7 @@ const stateTagApp = {
     }
 }
 
-function privateValidateStaEvent(data, spec, onFailCallback){
+function privateValidateStaEvent(data, spec, onFailCallback) {
 
     for (var r of spec) {
         if (_.isEmpty(data[r]) && !_.isNumber(data[r])) {
@@ -40,7 +42,10 @@ function privateValidateStaEvent(data, spec, onFailCallback){
                 .concat(' in ')
                 .concat(JSON.stringify(data));
 
-            onFailCallback(msg)
+            if (_.isFunction(onFailCallback)) {
+                onFailCallback(msg)
+            }
+
             return false;
         }
     }
