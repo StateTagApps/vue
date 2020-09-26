@@ -10,7 +10,7 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
                 .concat(JSON.stringify(data));
 
             if (_.isFunction(onFailCallback)) {
-                onFailCallback(msg)
+                onFailCallback(msg);
             }
 
             return false;
@@ -51,7 +51,7 @@ stateTagApp["commands"] = {
 function stateTagAppEventListener(message) {
     let staEvent;
     try {
-        staEvent = JSON.parse(message.data)
+        staEvent = JSON.parse(message.data);
     } catch (error) {
         return;
     }
@@ -63,6 +63,6 @@ function stateTagAppEventListener(message) {
      * HANDLERS
      * You can respond to stateTagApp events here.
      */
-    console.log(staEvent)
+    console.log(staEvent);
 
 }
