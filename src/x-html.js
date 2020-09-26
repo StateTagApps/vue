@@ -1,6 +1,6 @@
 import {mapGetters, mapActions} from "vuex";
 
-const Html = {
+const XHtml = {
     install(Vue, opts) {
         Vue.mixin({
             computed: {
@@ -70,4 +70,4 @@ const Html = {
     }
 };
 
-export default Html;
+export default XHtml;

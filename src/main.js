@@ -70,7 +70,7 @@ Vue.filter("date", function (value, format) {
     return stateTagApp.Vue.moment(date).format(format)
 });
 
-import XHtml from "./html";
+import XHtml from "./x-html";
 
 Vue.use(XHtml);
 
