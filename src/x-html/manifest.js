@@ -7,6 +7,5 @@ let tags = {
 }
 
 const Manifest = Object.assign(...Object.keys(tags).map(key => ({[stateTagApp['namespace'].concat('-'.concat(key))]: tags[key]})))
-console.log(Manifest);
 
 export default Manifest;
