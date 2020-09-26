@@ -1,5 +1,6 @@
 const stateTagApp = {
     storage: [localStorage, sessionStorage][1],
+    log: console.log,
 
     format: {
         date: 'Y-MM-DD',

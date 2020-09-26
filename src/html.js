@@ -30,7 +30,7 @@ const Html = {
 
                 devLog: function (msg) {
                     if (process.env.NODE_ENV !== "production") {
-                        console.log(msg)
+                        stateTagApp.log(msg)
                     }
                 },
 

@@ -6,7 +6,7 @@ import buildUrl from "build-url";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
-stateTagApp.api = stateTagApp.api[process.env.NODE_ENV]
+stateTagApp.api = stateTagApp.api[process.env.NODE_ENV];
 
 const requests = {};
 
@@ -112,22 +112,25 @@ export default {
                     return cancel.token;
                 },
 
-                $api: function (endpoint, caller, post) {
+                $api: function (endpoint, caller, post, method) {
                     let config = {};
                     let headers = {};
 
                     //CUSTOM HEADERS & AXIOS CONFIG
-
                     caller = caller.concat('-').concat(this._uid)
                     var cancelToken = this.privateAutoCancel(caller, this._uid);
 
                     config = {...config, headers, cancelToken}
 
-                    if (_.isUndefined(post)) {
-                        var promis = axios.get(endpoint, config)
-                    } else {
-                        var promis = axios.post(endpoint, post, config);
-                    }
+                    method = (_.isUndefined(method))
+                        ? (_.isUndefined(post))
+                            ? 'get'
+                            : 'post'
+                        : method;
+
+                    var promis = (_.isUndefined(post))
+                        ? axios[method](endpoint, config)
+                        : axios[method](endpoint, post, config);
 
                     promis.then(function (response) {
                         stateTagApp.dispatch({
@@ -135,7 +138,6 @@ export default {
                             from: caller.split('-')[0],
                             event: response.status,
                             message: 'success'
-                            //data: response.data
                         });
                     }
                         .bind(caller))

@@ -46,7 +46,7 @@ state.watch(
     },
     function (fresh, stale) {
         let log = 'msg was changed!'
-        console.log(log);
+        stateTagApp.log(log);
     }
 );
 

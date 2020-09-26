@@ -52,10 +52,11 @@ function stateTagAppEventListener(message) {
     let staEvent;
     try {
         staEvent = JSON.parse(message.data);
-    } catch (error) {
+    } catch (e) {
+        stateTagApp.log('Malformed JSON sent from STA.')
         return;
     }
-    if (typeof staEvent.app == 'undefined' || staEvent.app != 'stateTagApp') {
+    if (_.isUndefined(staEvent.app) || staEvent.app != 'stateTagApp') {
         return;
     }
 
@@ -63,6 +64,6 @@ function stateTagAppEventListener(message) {
      * HANDLERS
      * You can respond to stateTagApp events here.
      */
-    console.log(staEvent);
+    stateTagApp.log(staEvent);
 
 }
