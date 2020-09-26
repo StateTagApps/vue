@@ -1,3 +1,5 @@
+import state from "@/state";
+
 function privateValidateStaEvent(data, spec, onFailCallback) {
 
     for (var r of spec) {
@@ -35,6 +37,16 @@ stateTagApp['dispatch'] = function (data) {
         window.parent.postMessage(JSON.stringify(data), '*');
     }
 }
+
+stateTagApp["commands"] = {
+    setEventContext:function (context_passthru){
+        state.dispatch('setEventContext', context_passthru);
+    },
+
+    clearEventContext:function (){
+        state.dispatch('setEventContext', null);
+    },
+};
 
 function stateTagAppEventListener(message) {
     let staEvent;

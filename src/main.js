@@ -79,13 +79,3 @@ for (let tag in Manifest) {
     Manifest[tag].store = state;
     Vue.customElement(tag, Manifest[tag]);
 }
-
-stateTagApp["commands"] = {
-    setEventContext:function (context_passthru){
-        state.dispatch('setEventContext', context_passthru);
-    },
-
-    clearEventContext:function (){
-        state.dispatch('setEventContext', null);
-    },
-};
