@@ -19,8 +19,8 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
 }
 
 stateTagApp["commands"] = {
-    setEventContext:function (context_passthru){
-        state.dispatch('setEventContext', context_passthru);
+    setEventContext:function (context){
+        state.dispatch('setEventContext', context);
     },
 
     clearEventContext:function (){
@@ -35,7 +35,7 @@ stateTagApp['dispatch'] = function (data) {
     data['app'] = 'stateTagApp';
 
     if (!_.isNull(this.state.state.context)) {
-        data['thread'] = this.state.state.context;
+        data['context'] = this.state.state.context;
     }
 
     privateValidateStaEvent(data, desired, console.log);
