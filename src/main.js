@@ -5,6 +5,7 @@ import buildUrl from "build-url";
 import Vue from "vue";
 import vueCustomElement from "vue-custom-element";
 
+
 Vue.use(vueCustomElement);
 Vue.use(require("vue-moment"));
 

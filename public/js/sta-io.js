@@ -1,5 +1,3 @@
-import state from "@/state";
-
 function privateValidateStaEvent(data, spec, onFailCallback) {
 
     for (var r of spec) {
@@ -53,7 +51,6 @@ function stateTagAppEventListener(message) {
     try {
         staEvent = JSON.parse(message.data);
     } catch (e) {
-        stateTagApp.log('Malformed JSON sent from STA.')
         return;
     }
     if (_.isUndefined(staEvent.app) || staEvent.app != 'stateTagApp') {
