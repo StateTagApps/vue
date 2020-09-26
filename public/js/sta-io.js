@@ -18,6 +18,16 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
     return true;
 }
 
+stateTagApp["commands"] = {
+    setEventContext:function (context_passthru){
+        state.dispatch('setEventContext', context_passthru);
+    },
+
+    clearEventContext:function (){
+        state.dispatch('setEventContext', null);
+    },
+};
+
 stateTagApp['dispatch'] = function (data) {
     let desired = ['app', 'type', 'from', 'event'];
     let required = [];
@@ -35,16 +45,6 @@ stateTagApp['dispatch'] = function (data) {
         window.parent.postMessage(JSON.stringify(data), '*');
     }
 }
-
-stateTagApp["commands"] = {
-    setEventContext:function (context_passthru){
-        state.dispatch('setEventContext', context_passthru);
-    },
-
-    clearEventContext:function (){
-        state.dispatch('setEventContext', null);
-    },
-};
 
 function stateTagAppEventListener(message) {
     let staEvent;
