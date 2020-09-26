@@ -1,4 +1,5 @@
 const stateTagApp = {
+    namespace: 'x',
     storage: [localStorage, sessionStorage][1],
     log: console.log,
 
