@@ -1,4 +1,6 @@
 # State Tag Application (STA) in Vue.js
+Learn to create custom html tags that are able to do api calls and recieve socket events.
+
 ![STA Schematic Diagram](https://trafficjam.io/glide-public/HD/user-7/State_Tag_App_STA_Schematic.png?w=750)
 
 ## SPA or STA
