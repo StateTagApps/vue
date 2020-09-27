@@ -6,6 +6,11 @@ let tags = {
     "text-html": TextHtml
 }
 
-const Manifest = Object.assign(...Object.keys(tags).map(key => ({[stateTagApp['namespace'].concat('-'.concat(key))]: tags[key]})))
+//prepends namespace
+const Manifest = Object.assign(
+    ...Object
+        .keys(tags)
+        .map(key => ({[stateTagApp['namespace'].concat('-'.concat(key))]: tags[key]}))
+);
 
 export default Manifest;
