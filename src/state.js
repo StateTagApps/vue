@@ -2,6 +2,14 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
 
+stateTagApp['untouched'] = {
+    msg: {
+        en: "This text is inside state.",
+        sp: "Este texto está dentro del estado.",
+        fr: "Ce texte est à l'intérieur de l'état.",
+    }
+};
+
 const vuexPersist = new VuexPersist({
     key: "x-#stateTagAppVersion#",
     storage: stateTagApp.storage
@@ -9,17 +17,11 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex);
 
-const state = new Vuex.Store({
+stateTagApp["state"] = new Vuex.Store({
     plugins: [vuexPersist.plugin],
     context: null,
 
-    state: {
-        msg: {
-            en: "This text is inside state.",
-            sp: "Este texto está dentro del estado.",
-            fr: "Ce texte est à l'intérieur de l'état.",
-        }
-    },
+    state: {...stateTagApp['untouched']},
 
     getters: {
         $read: (state, getters) => (locator) => {
@@ -34,6 +36,13 @@ const state = new Vuex.Store({
 
         write: ({commit, state}, payload) => {
             commit("applyState", payload);
+        },
+
+        reset: ({commit, state}, payload) => {
+            Object.keys(stateTagApp['untouched'])
+                .forEach((key, index) => {
+                    state[key] = stateTagApp['untouched'][key];
+                });
         }
     },
 
@@ -44,7 +53,7 @@ const state = new Vuex.Store({
     }
 });
 
-state.watch(
+stateTagApp["state"].watch(
     function (state) {
         return state.msg;
     },
@@ -54,4 +63,4 @@ state.watch(
     }
 );
 
-export default state;
+export default stateTagApp["state"];

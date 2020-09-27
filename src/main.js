@@ -38,8 +38,6 @@ if (!_.isUndefined(stateTagApp.socket)) {
     Vue.use(VueSocketIOExt, socket);
 }
 
-import state from "./state";
-stateTagApp["state"] = state;
 
 function bindEvent(element, eventName, eventHandler) {
     if (element.addEventListener) {
@@ -71,10 +69,10 @@ Vue.filter("date", function (value, format) {
 });
 
 import XHtml from "./x-html";
-
 Vue.use(XHtml);
-
 import Manifest from "@/x-html/manifest";
+
+import state from "./state";
 
 for (let tag in Manifest) {
     Manifest[tag].store = state;

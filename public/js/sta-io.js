@@ -20,11 +20,15 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
 
 stateTagApp["commands"] = {
     setEventContext:function (context){
-        state.dispatch('setEventContext', context);
+        stateTagApp["state"].dispatch('setEventContext', context);
     },
 
     clearEventContext:function (){
-        state.dispatch('setEventContext', null);
+        stateTagApp["state"].dispatch('setEventContext', null);
+    },
+
+    resetState:function (){
+        stateTagApp["state"].dispatch('reset');
     },
 };
 
