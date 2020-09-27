@@ -20,15 +20,15 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
 
 stateTagApp["commands"] = {
     setEventContext:function (context){
-        stateTagApp["state"].dispatch('setEventContext', context);
+        stateTagApp["vuex"].dispatch('setEventContext', context);
     },
 
     clearEventContext:function (){
-        stateTagApp["state"].dispatch('setEventContext', null);
+        stateTagApp["vuex"].dispatch('setEventContext', null);
     },
 
     resetState:function (){
-        stateTagApp["state"].dispatch('reset');
+        stateTagApp["vuex"].dispatch('reset');
     },
 };
 

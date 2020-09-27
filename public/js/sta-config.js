@@ -1,6 +1,15 @@
 const stateTagApp = {
     namespace: 'x',
     storage: [localStorage, sessionStorage][1],
+
+    state: {
+        msg: {
+            en: "This text is inside state.",
+            sp: "Este texto está dentro del estado.",
+            fr: "Ce texte est à l'intérieur de l'état.",
+        }
+    },
+
     log: console.log,
 
     format: {

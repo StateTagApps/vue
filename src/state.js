@@ -2,14 +2,6 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
 
-stateTagApp['untouched'] = {
-    msg: {
-        en: "This text is inside state.",
-        sp: "Este texto está dentro del estado.",
-        fr: "Ce texte est à l'intérieur de l'état.",
-    }
-};
-
 const vuexPersist = new VuexPersist({
     key: "x-#stateTagAppVersion#",
     storage: stateTagApp.storage
@@ -17,11 +9,11 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex);
 
-stateTagApp["state"] = new Vuex.Store({
+stateTagApp["vuex"] = new Vuex.Store({
     plugins: [vuexPersist.plugin],
     context: null,
 
-    state: {...stateTagApp['untouched']},
+    state: {...stateTagApp["state"]},
 
     getters: {
         $read: (state, getters) => (locator) => {
@@ -39,9 +31,9 @@ stateTagApp["state"] = new Vuex.Store({
         },
 
         reset: ({commit, state}, payload) => {
-            Object.keys(stateTagApp['untouched'])
+            Object.keys(stateTagApp["state"])
                 .forEach((key, index) => {
-                    state[key] = stateTagApp['untouched'][key];
+                    commit("applyState", {locator: key, value: stateTagApp["state"][key]});
                 });
         }
     },
@@ -53,14 +45,24 @@ stateTagApp["state"] = new Vuex.Store({
     }
 });
 
-stateTagApp["state"].watch(
+stateTagApp["vuex"].watch(
     function (state) {
-        return state.msg;
+        return state.msg.en;
     },
     function (fresh, stale) {
-        let log = 'msg was changed!'
+        let log = 'English msg was changed!'
         stateTagApp.log(log);
     }
 );
 
-export default stateTagApp["state"];
+stateTagApp["vuex"].watch(
+    function (state) {
+        return state.msg.sp;
+    },
+    function (fresh, stale) {
+        let log = 'Spanish msg was changed!'
+        stateTagApp.log(log);
+    }
+);
+
+export default stateTagApp["vuex"];
