@@ -1,3 +1,8 @@
+stateTagApp['api'] = {
+    production: "https://data.StateTagApp.com",
+        development: "https://data.StateTagApp.com"
+}[process.env.NODE_ENV];
+
 import _ from "lodash";
 import Vue from "vue";
 import axios from "axios";
@@ -6,7 +11,6 @@ import buildUrl from "build-url";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
-stateTagApp.api = stateTagApp.api[process.env.NODE_ENV];
 
 const requests = {};
 

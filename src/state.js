@@ -1,3 +1,12 @@
+stateTagApp['state'] = {
+    msg: {
+        en: "This text is inside state.",
+            sp: "Este texto está dentro del estado.",
+            fr: "Ce texte est à l'intérieur de l'état.",
+    }
+};
+
+//-----------------------
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
@@ -9,7 +18,7 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex);
 
-stateTagApp["vuex"] = new Vuex.Store({
+stateTagApp["store"] = new Vuex.Store({
     plugins: [vuexPersist.plugin],
     context: null,
 
@@ -45,7 +54,7 @@ stateTagApp["vuex"] = new Vuex.Store({
     }
 });
 
-stateTagApp["vuex"].watch(
+stateTagApp["store"].watch(
     function (state) {
         return state.msg.en;
     },
@@ -55,7 +64,7 @@ stateTagApp["vuex"].watch(
     }
 );
 
-stateTagApp["vuex"].watch(
+stateTagApp["store"].watch(
     function (state) {
         return state.msg.sp;
     },
@@ -65,4 +74,4 @@ stateTagApp["vuex"].watch(
     }
 );
 
-export default stateTagApp["vuex"];
+export default stateTagApp["store"];
