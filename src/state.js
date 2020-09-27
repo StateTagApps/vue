@@ -14,7 +14,11 @@ const state = new Vuex.Store({
     context: null,
 
     state: {
-        msg: {en: "This text is inside state.js"}
+        msg: {
+            en: "This text is inside state.",
+            sp: "Este texto está dentro del estado.",
+            fr: "Ce texte est à l'intérieur de l'état.",
+        }
     },
 
     getters: {
