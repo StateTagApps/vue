@@ -17,4 +17,4 @@ Certain implementations using this technique are restricted by US business proce
 
 [Go to http://StateTagApp.com for developer information, training, and licensing.](https://StateTagApp.com)
 
-As a trained developer you will be able to register and issue licenses.
+As a trained developer you will be able to register and issue project licenses to yourself and your clients.
