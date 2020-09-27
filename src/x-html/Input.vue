@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span>{{ model }}: </span>
+    <span>{{ locus }}: </span>
     <input type="text" v-model="txt">
     <button @click="submit">submit</button>
   </div>
@@ -10,7 +10,7 @@
 export default {
 
   props: {
-    model: {
+    locus: {
       type: String,
       required: true
     }
@@ -21,11 +21,11 @@ export default {
   },
   methods: {
     submit: function () {
-      this.$write(this.model, this.txt);
+      this.$write(this.locus, this.txt);
     }
   },
   mounted: function (){
-    this.txt = this.$read(this.model);
+    this.txt = this.$read(this.locus);
   }
 }
 </script>
