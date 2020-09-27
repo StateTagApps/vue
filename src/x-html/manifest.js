@@ -2,8 +2,8 @@ import TextHtml from "@/x-html/TextHtml";
 import Input from "@/x-html/Input";
 
 let tags = {
-    'input': Input,
-    "text-html": TextHtml
+    "text-html": TextHtml,
+    "input": Input,
 }
 
 //prepends namespace
