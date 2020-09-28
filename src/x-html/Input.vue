@@ -24,8 +24,25 @@ export default {
       this.$write(this.locus, this.txt);
     }
   },
-  mounted: function (){
+  mounted: function () {
     this.txt = this.$read(this.locus);
+  },
+
+  computed: {
+    anything: function () {
+      return this.$read(this.locus);
+    },
+  },
+  watch: {
+    anything: function (fresh, stale) {
+      let log = this.locus
+          .concat(' changed from ')
+          .concat(stale)
+          .concat(' to ')
+          .concat(fresh);
+
+      this.devLog(log);
+    }
   }
 }
 </script>

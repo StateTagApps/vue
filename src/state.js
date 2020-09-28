@@ -59,7 +59,25 @@ stateTagApp["store"].watch(
         return state.msg.en;
     },
     function (fresh, stale) {
-        let log = 'English msg was changed!'
+        let log = 'Global watcher heard change from '
+            .concat(stale)
+            .concat(' to ')
+            .concat(fresh);
+
+        stateTagApp.log(log);
+    }
+);
+
+stateTagApp["store"].watch(
+    function (state) {
+        return state.msg.fr;
+    },
+    function (fresh, stale) {
+        let log = 'Global watcher heard change from '
+            .concat(stale)
+            .concat(' to ')
+            .concat(fresh);
+
         stateTagApp.log(log);
     }
 );
@@ -69,7 +87,11 @@ stateTagApp["store"].watch(
         return state.msg.sp;
     },
     function (fresh, stale) {
-        let log = 'Spanish msg was changed!'
+        let log = 'Global watcher heard change from '
+            .concat(stale)
+            .concat(' to ')
+            .concat(fresh);
+
         stateTagApp.log(log);
     }
 );
