@@ -1,8 +1,8 @@
 stateTagApp['state'] = {
     msg: {
         en: "This text is inside state.",
-            sp: "Este texto está dentro del estado.",
-            fr: "Ce texte est à l'intérieur de l'état.",
+        sp: "Este texto está dentro del estado.",
+        fr: "Ce texte est à l'intérieur de l'état.",
     }
 };
 
