@@ -61,14 +61,14 @@ export default {
     content: function () {
       switch (true) {
         case (this.service == 'state'):
-          let locator = this.src;
+          let locus = this.src;
 
           if (!_.isEmpty(this.property)) {
-            locator = locator.concat('.')
+            locus = locus.concat('.')
                 .concat(this.property)
           }
 
-          return this.$read(locator);
+          return this.$read(locus);
           break;
 
         case (this.privateLoading):

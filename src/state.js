@@ -25,14 +25,14 @@ stateTagApp["store"] = new Vuex.Store({
     state: {...stateTagApp["state"]},
 
     getters: {
-        $read: (state, getters) => (locator) => {
-            return _.get(state, locator);
+        $read: (state, getters) => (locus) => {
+            return _.get(state, locus);
         },
     },
 
     actions: {
         setEventContext: ({commit, state}, value) => {
-            commit("applyState", {locator: 'context', value})
+            commit("applyState", {locus: 'context', value})
         },
 
         write: ({commit, state}, payload) => {
@@ -42,14 +42,14 @@ stateTagApp["store"] = new Vuex.Store({
         reset: ({commit, state}, payload) => {
             Object.keys(stateTagApp["state"])
                 .forEach((key, index) => {
-                    commit("applyState", {locator: key, value: stateTagApp["state"][key]});
+                    commit("applyState", {locus: key, value: stateTagApp["state"][key]});
                 });
         }
     },
 
     mutations: {
         applyState: function (state, payload) {
-            _.set(state, payload.locator, payload.value)
+            _.set(state, payload.locus, payload.value)
         }
     }
 });

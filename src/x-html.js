@@ -12,8 +12,8 @@ const XHtml = {
 
             methods: {
                 ...mapActions(['write']),
-                $write: function (locator, value){
-                    this.write({locator, value})
+                $write: function (locus, value){
+                    this.write({locus, value})
                 },
 
                 dispatch: stateTagApp.dispatch,
