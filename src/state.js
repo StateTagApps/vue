@@ -1,4 +1,6 @@
 stateTagApp['state'] = {
+    context: null,
+
     msg: {
         en: "This text is inside state.",
         sp: "Este texto está dentro del estado.",
@@ -13,14 +15,13 @@ import VuexPersist from "vuex-persist";
 
 const vuexPersist = new VuexPersist({
     key: "x-#stateTagAppVersion#",
-    storage: stateTagApp.storage
+    storage: stateTagApp.disk
 });
 
 Vue.use(Vuex);
 
-stateTagApp["io"] = new Vuex.Store({
+stateTagApp["storage"] = new Vuex.Store({
     plugins: [vuexPersist.plugin],
-    context: null,
 
     state: {...stateTagApp["state"]},
 
@@ -54,7 +55,7 @@ stateTagApp["io"] = new Vuex.Store({
     }
 });
 
-stateTagApp["io"].watch(
+stateTagApp["storage"].watch(
     function (state) {
         return state.msg.en;
     },
@@ -68,7 +69,7 @@ stateTagApp["io"].watch(
     }
 );
 
-stateTagApp["io"].watch(
+stateTagApp["storage"].watch(
     function (state) {
         return state.msg.fr;
     },
@@ -82,7 +83,7 @@ stateTagApp["io"].watch(
     }
 );
 
-stateTagApp["io"].watch(
+stateTagApp["storage"].watch(
     function (state) {
         return state.msg.sp;
     },
@@ -96,4 +97,6 @@ stateTagApp["io"].watch(
     }
 );
 
-export default stateTagApp["io"];
+
+
+export default stateTagApp["storage"];

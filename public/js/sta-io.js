@@ -1,14 +1,14 @@
 stateTagApp["commands"] = {
     setEventContext:function (context){
-        stateTagApp.dispatch('setEventContext', context);
+        stateTagApp.storage.dispatch('setEventContext', context);
     },
 
     clearEventContext:function (){
-        stateTagApp.dispatch('setEventContext', null);
+        stateTagApp.storage.dispatch('setEventContext', null);
     },
 
     resetState:function (){
-        stateTagApp.dispatch('reset');
+        stateTagApp.storage.dispatch('reset');
     },
 };
 
@@ -37,8 +37,8 @@ stateTagApp['dispatch'] = function (data) {
 
     data['app'] = 'stateTagApp';
 
-    if (!_.isNull(this.state.state.context)) {
-        data['context'] = this.state.state.context;
+    if (!_.isNull(stateTagApp.storage.getters.$read('context'))) {
+        data['context'] = stateTagApp.storage.getters.$read('context');
     }
 
     privateValidateStaEvent(data, desired, console.log);
