@@ -18,7 +18,7 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex);
 
-stateTagApp["store"] = new Vuex.Store({
+stateTagApp["io"] = new Vuex.Store({
     plugins: [vuexPersist.plugin],
     context: null,
 
@@ -54,7 +54,7 @@ stateTagApp["store"] = new Vuex.Store({
     }
 });
 
-stateTagApp["store"].watch(
+stateTagApp["io"].watch(
     function (state) {
         return state.msg.en;
     },
@@ -68,7 +68,7 @@ stateTagApp["store"].watch(
     }
 );
 
-stateTagApp["store"].watch(
+stateTagApp["io"].watch(
     function (state) {
         return state.msg.fr;
     },
@@ -82,7 +82,7 @@ stateTagApp["store"].watch(
     }
 );
 
-stateTagApp["store"].watch(
+stateTagApp["io"].watch(
     function (state) {
         return state.msg.sp;
     },
@@ -96,4 +96,4 @@ stateTagApp["store"].watch(
     }
 );
 
-export default stateTagApp["store"];
+export default stateTagApp["io"];
