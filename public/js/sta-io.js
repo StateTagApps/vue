@@ -12,7 +12,7 @@ stateTagApp["commands"] = {
     },
 };
 
-function stateTagAppEventListener(message) {
+function recieveStateTagAppTransmission(message) {
     let staEvent;
     try {
         staEvent = JSON.parse(message.data);
@@ -31,7 +31,7 @@ function stateTagAppEventListener(message) {
 
 }
 
-stateTagApp['dispatch'] = function (data) {
+stateTagApp["transmit"] = function (data) {
     let desired = ['app', 'type', 'from', 'event'];
     let required = [];
 

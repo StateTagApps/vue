@@ -18,7 +18,7 @@ const XHtml = {
 
                 $execute: stateTagApp.storage.dispatch,
 
-                $dispatch: stateTagApp.dispatch,
+                $dispatch: stateTagApp.transmit,
                 announce: function (tag, type, io, payload) {
                     payload = (!_.isUndefined(payload)) ? {...payload, type, io} : {type, io};
 

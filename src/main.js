@@ -48,7 +48,7 @@ function bindEvent(element, eventName, eventHandler) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    bindEvent(window, "message", stateTagAppEventListener);
+    bindEvent(window, "message", recieveStateTagAppTransmission);
 });
 
 Vue.filter('fromCamelToWords', function (str) {

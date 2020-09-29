@@ -137,7 +137,7 @@ export default {
                         : axios[method](endpoint, post, config);
 
                     promis.then(function (response) {
-                        stateTagApp.dispatch({
+                        stateTagApp.transmit({
                             type: 'api',
                             from: caller.split('-')[0],
                             event: response.status,
@@ -147,7 +147,7 @@ export default {
                         .bind(caller))
                         .catch(function (error) {
                             try {
-                                stateTagApp.dispatch({
+                                stateTagApp.transmit({
                                     type: 'api',
                                     from: caller.split('-')[0],
                                     event: error.response.status,
