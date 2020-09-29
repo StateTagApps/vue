@@ -12,6 +12,24 @@ stateTagApp["commands"] = {
     },
 };
 
+stateTagApp["transmit"] = function (data) {
+    let desired = ['app', 'type', 'from', 'event'];
+    let required = [];
+
+    data['app'] = 'stateTagApp';
+
+    if (!_.isNull(stateTagApp.read('context'))) {
+        data['context'] = stateTagApp.read('context');
+    }
+
+    privateValidateStaEvent(data, desired, console.log);
+    if (privateValidateStaEvent(data, required, function (msg) {
+        alert(msg);
+    })) {
+        window.parent.postMessage(JSON.stringify(data), '*');
+    }
+}
+
 function recieveStateTagAppTransmission(message) {
     let staMessage;
     try {
@@ -29,24 +47,6 @@ function recieveStateTagAppTransmission(message) {
      */
     stateTagApp.log(staMessage);
 
-}
-
-stateTagApp["transmit"] = function (data) {
-    let desired = ['app', 'type', 'from', 'event'];
-    let required = [];
-
-    data['app'] = 'stateTagApp';
-
-    if (!_.isNull(stateTagApp.storage.getters.$read('context'))) {
-        data['context'] = stateTagApp.storage.getters.$read('context');
-    }
-
-    privateValidateStaEvent(data, desired, console.log);
-    if (privateValidateStaEvent(data, required, function (msg) {
-        alert(msg);
-    })) {
-        window.parent.postMessage(JSON.stringify(data), '*');
-    }
 }
 
 function privateValidateStaEvent(data, spec, onFailCallback) {
