@@ -13,13 +13,13 @@ stateTagApp["commands"] = {
 };
 
 function recieveStateTagAppTransmission(message) {
-    let staEvent;
+    let staMessage;
     try {
-        staEvent = JSON.parse(message.data);
+        staMessage = JSON.parse(message.data);
     } catch (e) {
         return;
     }
-    if (_.isUndefined(staEvent.app) || staEvent.app != 'stateTagApp') {
+    if (_.isUndefined(staMessage.app) || staMessage.app != 'stateTagApp') {
         return;
     }
 
@@ -27,7 +27,7 @@ function recieveStateTagAppTransmission(message) {
      * HANDLERS
      * You can respond to stateTagApp events here.
      */
-    stateTagApp.log(staEvent);
+    stateTagApp.log(staMessage);
 
 }
 
@@ -53,7 +53,7 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
 
     for (var r of spec) {
         if (_.isEmpty(data[r]) && !_.isNumber(data[r])) {
-            let msg = 'Missing staEvent element: '
+            let msg = 'Missing staMessage element: '
                 .concat(r)
                 .concat(' in ')
                 .concat(JSON.stringify(data));
