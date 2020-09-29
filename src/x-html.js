@@ -16,11 +16,11 @@ const XHtml = {
                     this.write({locus, value})
                 },
 
-                dispatch: stateTagApp.dispatch,
+                $dispatch: stateTagApp.dispatch,
                 announce: function (tag, type, io, payload) {
                     payload = (!_.isUndefined(payload)) ? {...payload, type, io} : {type, io};
 
-                    this.dispatch({
+                    this.$dispatch({
                         type: 'tag',
                         from: tag,
                         event: 'ready',
