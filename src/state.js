@@ -97,6 +97,6 @@ stateTagApp["storage"].watch(
     }
 );
 
-
+stateTagApp["execute"] = stateTagApp.storage.dispatch;
 
 export default stateTagApp["storage"];

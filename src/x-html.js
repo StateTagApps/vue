@@ -16,6 +16,8 @@ const XHtml = {
                     this.write({locus, value})
                 },
 
+                $execute: stateTagApp.storage.dispatch,
+
                 $dispatch: stateTagApp.dispatch,
                 announce: function (tag, type, io, payload) {
                     payload = (!_.isUndefined(payload)) ? {...payload, type, io} : {type, io};
