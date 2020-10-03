@@ -25,13 +25,21 @@ stateTagApp["storage"] = new Vuex.Store({
             commit("applyState", payload);
         },
 
-        reset: ({commit, state}, payload) => {
+        resetState: ({commit, state}, payload) => {
             let tmp = JSON.parse(JSON.stringify(stateTagApp["state"]));
             Object.keys(tmp)
                 .forEach((locus, index) => {
                     if(locus == 'sta'){
                         return;
                     }
+                    commit("applyState", {locus, value: tmp[locus]});
+                });
+        },
+
+        resetApp: ({commit, state}, payload) => {
+            let tmp = JSON.parse(JSON.stringify(stateTagApp["state"]));
+            Object.keys(tmp)
+                .forEach((locus, index) => {
                     commit("applyState", {locus, value: tmp[locus]});
                 });
         }

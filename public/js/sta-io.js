@@ -8,7 +8,11 @@ stateTagApp["commands"] = {
     },
 
     resetState:function (){
-        stateTagApp.$execute('reset');
+        stateTagApp.$execute('resetState');
+    },
+
+    resetApp:function (){
+        stateTagApp.$execute('resetApp');
     },
 };
 
