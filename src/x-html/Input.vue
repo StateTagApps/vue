@@ -43,8 +43,8 @@ export default {
       return this.$read(this.locus);
     },
   },
-  watch: {
 
+  watch: {
     anything: function (fresh, stale) {
       let log = 'Local watcher heard '
           .concat(this.locus)
