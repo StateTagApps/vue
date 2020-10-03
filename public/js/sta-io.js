@@ -18,8 +18,8 @@ stateTagApp["transmit"] = function (data) {
 
     data['app'] = 'stateTagApp';
 
-    if (!_.isNull(stateTagApp.read('context'))) {
-        data['context'] = stateTagApp.read('context');
+    if (!_.isNull(stateTagApp.$read('context'))) {
+        data['context'] = stateTagApp.$read('context');
     }
 
     privateValidateStaEvent(data, desired, console.log);
