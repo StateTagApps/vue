@@ -41,8 +41,6 @@ stateTagApp["storage"] = new Vuex.Store({
         },
 
         reset: ({commit, state}, payload) => {
-            console.log('hit')
-
             let tmp = JSON.parse(JSON.stringify(stateTagApp["state"]));
             Object.keys(tmp)
                 .forEach((locus, index) => {

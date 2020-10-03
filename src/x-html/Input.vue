@@ -2,7 +2,7 @@
   <div v-if="withButton">
     <span>{{ locus }}: </span>
     <input type="text" v-model="txt">
-    <button @click="submit">submit</button>
+    <button @click.prevent="submit">submit</button>
   </div>
 
   <input v-else
@@ -46,7 +46,8 @@ export default {
   watch: {
 
     anything: function (fresh, stale) {
-      let log = this.locus
+      let log = 'Local watcher heard '
+          .concat(this.locus)
           .concat(' changed from ')
           .concat(stale)
           .concat(' to ')
