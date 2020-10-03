@@ -12,7 +12,7 @@ stateTagApp["commands"] = {
     },
 };
 
-stateTagApp["transmit"] = function (data) {
+stateTagApp["$broadcast"] = function (data) {
     let desired = ['app', 'type', 'from', 'event'];
     let required = [];
 
@@ -30,7 +30,7 @@ stateTagApp["transmit"] = function (data) {
     }
 }
 
-function recieveStateTagAppTransmission(message) {
+function recieveStateTagAppBroadcast(message) {
     let staMessage;
     try {
         staMessage = JSON.parse(message.data);

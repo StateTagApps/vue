@@ -36,7 +36,7 @@ axios.interceptors.request.use(
         if (!count) {
             NProgress.start();
             data.event = 'start';
-            stateTagApp["transmit"](data);
+            stateTagApp.$broadcast(data);
 
         } else if (count == 1) {
             NProgress.done(true);
@@ -69,7 +69,7 @@ axios.interceptors.response.use(
 
         if (!count) {
             data.event = 'stop';
-            stateTagApp["transmit"](data);
+            stateTagApp.$broadcast(data);
             NProgress.done(true);
         }
         return response;
@@ -88,7 +88,7 @@ axios.interceptors.response.use(
         if (!count) {
             NProgress.done(true);
             data.event = 'stop';
-            stateTagApp["transmit"](data);
+            stateTagApp.$broadcast(data);
         }
         return Promise.reject(error);
     }
@@ -123,7 +123,7 @@ export default {
                         : axios[method](endpoint, post, config);
 
                     promis.then(function (response) {
-                        stateTagApp.transmit({
+                        stateTagApp.broadcast({
                             type: 'api',
                             from: caller.split('-')[0],
                             event: response.status,
@@ -133,7 +133,7 @@ export default {
                         .bind(caller))
                         .catch(function (error) {
                             try {
-                                stateTagApp.transmit({
+                                stateTagApp.broadcast({
                                     type: 'api',
                                     from: caller.split('-')[0],
                                     event: error.response.status,

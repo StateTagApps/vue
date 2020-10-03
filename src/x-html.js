@@ -1,40 +1,21 @@
-import {mapGetters, mapActions} from "vuex";
+import {mapGetters} from "vuex";
 
 const XHtml = {
     install(Vue, opts) {
         Vue.mixin({
             computed: {
                 ...mapGetters(['$read']),
-                $onSocket: function (){
+
+                $onSocket: function () {
                     return this.$socket.$subscribe;
                 },
             },
 
             methods: {
-                ...mapActions(['write']),
-                $write: function (locus, value){
-                    this.write({locus, value})
-                },
-
-                $execute: stateTagApp.storage.dispatch,
-
-                $dispatch: stateTagApp.transmit,
-                announce: function (tag, type, io, payload) {
-                    payload = (!_.isUndefined(payload)) ? {...payload, type, io} : {type, io};
-
-                    this.$dispatch({
-                        type: 'tag',
-                        from: tag,
-                        event: 'ready',
-                        payload
-                    });
-                },
-
-                devLog: function (msg) {
-                    if (process.env.NODE_ENV !== "production") {
-                        stateTagApp.log(msg)
-                    }
-                },
+                log: stateTagApp.log,
+                $write: stateTagApp.$write,
+                $execute: stateTagApp.$execute,
+                $broadcast: stateTagApp.$broadcast,
 
                 nestedTagSpecs(tagSpecs, k) {
                     let nesting = tagSpecs.split('|');
