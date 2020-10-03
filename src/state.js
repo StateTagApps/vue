@@ -59,6 +59,4 @@ stateTagApp["$write"] = function (locus, value) {
 }
 stateTagApp["$execute"] = stateTagApp.storage.dispatch;
 
-initGlobalStateWatchers(stateTagApp["storage"]);
-
 export default stateTagApp["storage"];

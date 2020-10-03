@@ -5,11 +5,17 @@ stateTagApp['state'] = {
         en: "This text is inside state.js.",
         sp: "Este texto está dentro del estado.",
         fr: "Ce texte est à l'intérieur de l'état.",
-    }
+    },
+
+    rolex: null
 };
 
-function initGlobalStateWatchers(state){
-    state.watch(
+function initGlobalStateWatchers(stateObserver){
+    stateTagApp.$onSocket('timecast', payload => {
+        stateTagApp.$write('rolex', payload.stamp)
+    });
+
+    stateObserver.watch(
         function (state) {
             return state.msg.en;
         },
@@ -23,7 +29,7 @@ function initGlobalStateWatchers(state){
         }
     );
 
-    state.watch(
+    stateObserver.watch(
         function (state) {
             return state.msg.fr;
         },
@@ -37,7 +43,7 @@ function initGlobalStateWatchers(state){
         }
     );
 
-    state.watch(
+    stateObserver.watch(
         function (state) {
             return state.msg.sp;
         },

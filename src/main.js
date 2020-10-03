@@ -50,6 +50,8 @@ Vue.filter("date", function (value, format) {
     return stateTagApp.Vue.moment(date).format(format)
 });
 
+initGlobalStateWatchers(stateTagApp["storage"]);
+
 import XHtml from "./x-html";
 Vue.use(XHtml);
 import Manifest from "@/x-html/manifest";
