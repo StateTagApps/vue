@@ -1,9 +1,11 @@
-import TextHtml from "@/x-html/TextHtml";
 import Input from "@/x-html/Input";
+import SocketStatus from "@/x-html/SocketStatus";
+import TextHtml from "@/x-html/TextHtml";
 
 let tags = {
-    "text-html": TextHtml,
     "input": Input,
+    "socket-status": SocketStatus,
+    "text-html": TextHtml,
 }
 
 const Manifest = Object.assign(
