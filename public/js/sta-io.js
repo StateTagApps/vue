@@ -5,15 +5,7 @@ stateTagApp["commands"] = {
 
     clearEventContext:function (){
         stateTagApp.$write('sta.context', null);
-    },
-
-    resetState:function (){
-        stateTagApp.$execute('resetState');
-    },
-
-    resetApp:function (){
-        stateTagApp.$execute('resetApp');
-    },
+    }
 };
 
 function recieveStateTagAppBroadcast(message) {
