@@ -1,14 +1,16 @@
+stateTagApp["state"]["context"] = null;
+
 stateTagApp["commands"] = {
     setEventContext:function (context){
-        stateTagApp.execute('setEventContext', context);
+        stateTagApp.$execute('setEventContext', context);
     },
 
     clearEventContext:function (){
-        stateTagApp.execute('setEventContext', null);
+        stateTagApp.$execute('setEventContext', null);
     },
 
     resetState:function (){
-        stateTagApp.execute('reset');
+        stateTagApp.$execute('reset');
     },
 };
 

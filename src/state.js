@@ -1,14 +1,3 @@
-stateTagApp['state'] = {
-    context: null,
-
-    msg: {
-        en: "This text is inside state.",
-        sp: "Este texto está dentro del estado.",
-        fr: "Ce texte est à l'intérieur de l'état.",
-    }
-};
-
-//-----------------------
 import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
