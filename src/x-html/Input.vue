@@ -52,7 +52,7 @@ export default {
           .concat(' to ')
           .concat(fresh);
 
-      this.devLog(log);
+      this.log(log);
     }
   }
 }
