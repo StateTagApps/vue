@@ -68,3 +68,15 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
 
     return true;
 }
+
+function privateBindEvent(element, eventName, eventHandler) {
+    if (element.addEventListener) {
+        element.addEventListener(eventName, eventHandler, false);
+    } else if (element.attachEvent) {
+        element.attachEvent("on" + eventName, eventHandler);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    privateBindEvent(window, "message", recieveStateTagAppBroadcast);
+});

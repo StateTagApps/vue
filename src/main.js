@@ -38,19 +38,6 @@ if (!_.isUndefined(stateTagApp.socket)) {
     Vue.use(VueSocketIOExt, socket);
 }
 
-
-function bindEvent(element, eventName, eventHandler) {
-    if (element.addEventListener) {
-        element.addEventListener(eventName, eventHandler, false);
-    } else if (element.attachEvent) {
-        element.attachEvent("on" + eventName, eventHandler);
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    bindEvent(window, "message", recieveStateTagAppBroadcast);
-});
-
 Vue.filter('fromCamelToWords', function (str) {
     return str
         .replace(/[0-9]{2,}/g, match => ` ${match} `)
