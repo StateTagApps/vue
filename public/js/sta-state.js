@@ -11,9 +11,6 @@ stateTagApp['state'] = {
 };
 
 function initGlobalStateWatchers(stateObserver){
-    stateTagApp.$onSocket('timecast', payload => {
-        stateTagApp.$write('rolex', payload.stamp)
-    });
 
     stateObserver.watch(
         function (state) {

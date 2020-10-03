@@ -51,6 +51,7 @@ Vue.filter("date", function (value, format) {
 });
 
 initGlobalStateWatchers(stateTagApp["storage"]);
+initGlobalSocketWatchers();
 
 import XHtml from "./x-html";
 Vue.use(XHtml);
