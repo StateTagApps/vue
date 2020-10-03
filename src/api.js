@@ -6,7 +6,6 @@ import buildUrl from "build-url";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
-
 const requests = {};
 
 NProgress.configure({
@@ -15,7 +14,6 @@ NProgress.configure({
     trickleRate: 0.1,
     trickleSpeed: 400
 });
-
 
 let count = 0;
 // Add a request interceptor
