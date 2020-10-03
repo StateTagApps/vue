@@ -36,7 +36,7 @@ axios.interceptors.request.use(
         if (!count) {
             NProgress.start();
             data.event = 'start';
-            window.parent.postMessage(JSON.stringify(data), '*');
+            stateTagApp["transmit"](data);
 
         } else if (count == 1) {
             NProgress.done(true);
@@ -46,7 +46,6 @@ axios.interceptors.request.use(
         count++;
         if (count != 1) {
             data.event = 'increment';
-            //window.parent.postMessage(JSON.stringify(data), '*');
         }
 
         return config;
@@ -70,7 +69,7 @@ axios.interceptors.response.use(
 
         if (!count) {
             data.event = 'stop';
-            window.parent.postMessage(JSON.stringify(data), '*');
+            stateTagApp["transmit"](data);
             NProgress.done(true);
         }
         return response;
@@ -89,7 +88,7 @@ axios.interceptors.response.use(
         if (!count) {
             NProgress.done(true);
             data.event = 'stop';
-            window.parent.postMessage(JSON.stringify(data), '*');
+            stateTagApp["transmit"](data);
         }
         return Promise.reject(error);
     }
