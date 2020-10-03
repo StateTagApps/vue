@@ -92,5 +92,4 @@ stateTagApp["$write"] = function (locus, value) {
 }
 stateTagApp["$execute"] = stateTagApp.storage.dispatch;
 
-
 export default stateTagApp["storage"];
