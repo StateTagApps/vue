@@ -25,6 +25,7 @@ _.mixin({
 
 Vue.prototype._ = _;
 
+stateTagApp['api'] = stateTagApp['api'][process.env.NODE_ENV];
 import Api from "./api";
 
 Vue.use(Api);

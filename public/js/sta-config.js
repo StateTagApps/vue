@@ -7,6 +7,11 @@ const stateTagApp = {
         date: 'Y-MM-DD',
     },
 
+    api: {
+        production: "https://data.StateTagApp.com",
+        development: "https://data.StateTagApp.com"
+    },
+
     //optional
     socket: {
         production: "https://services.x-html.app:3000",
