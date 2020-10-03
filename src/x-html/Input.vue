@@ -29,7 +29,7 @@ export default {
   },
 
   data: function () {
-    return {txt: ''}
+    return {txt: ''};
   },
   methods: {
     submit: function () {
