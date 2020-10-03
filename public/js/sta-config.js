@@ -1,8 +1,11 @@
 const stateTagApp = {
     namespace: 'x',
     disk: [localStorage, sessionStorage][1],
-
     log: console.log,
+
+    format: {
+        date: 'Y-MM-DD',
+    },
 
     //optional
     socket: {
