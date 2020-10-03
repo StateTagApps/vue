@@ -74,7 +74,7 @@ export default {
         case (this.privateLoading):
           return {
             api: 'loading...',
-            socket: 'connecting...'
+            socket: (this.$socket.disconnected) ? 'connecting...' : 'waiting...'
           }[this.service];
           break;
 
