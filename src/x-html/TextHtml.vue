@@ -46,6 +46,15 @@ export default {
     src: {
       required: true,
       type: String
+    },
+
+    connectingMsg: {
+      type: String,
+      default: 'connecting...'
+    },
+    waitingMsg: {
+      type: String,
+      default: 'waiting...'
     }
   },
 
@@ -74,7 +83,7 @@ export default {
         case (this.privateLoading):
           return {
             api: 'loading...',
-            socket: (this.$socket.disconnected) ? 'connecting...' : 'waiting...'
+            socket: (this.$socket.disconnected) ? this.connectingMsg : this.waitingMsg
           }[this.service];
           break;
 
