@@ -6,7 +6,6 @@ let tags = {
     "input": Input,
 }
 
-//prepends namespace
 const Manifest = Object.assign(
     ...Object
         .keys(tags)
