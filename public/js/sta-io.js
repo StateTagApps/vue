@@ -1,5 +1,3 @@
-stateTagApp["state"]["sta"]["context"] = null;
-
 stateTagApp["commands"] = {
     setEventContext:function (context){
         stateTagApp.$write('sta.context', context);

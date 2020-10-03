@@ -86,6 +86,7 @@ stateTagApp["storage"].watch(
     }
 );
 
+stateTagApp["state"]["sta"]["context"] = null;
 stateTagApp["$read"] = stateTagApp.storage.getters.$read;
 stateTagApp["$write"] = function (locus, value) {
     stateTagApp.storage.dispatch('write', {locus, value});
