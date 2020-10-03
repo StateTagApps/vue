@@ -34,10 +34,8 @@ export default {
   methods: {
     submit: function () {
       this.$write(this.locus, this.txt);
+      this.txt = '';
     }
-  },
-  mounted: function () {
-    this.txt = this.$read(this.locus);
   },
 
   computed: {
@@ -46,6 +44,7 @@ export default {
     },
   },
   watch: {
+
     anything: function (fresh, stale) {
       let log = this.locus
           .concat(' changed from ')
