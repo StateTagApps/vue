@@ -44,8 +44,6 @@ if (!_.isUndefined(stateTagApp.socket)) {
     Vue.use(VueSocketIOExt, stateTagApp['socketIo']);
 }
 
-
-
 Vue.filter("date", function (value, format) {
     format = format || stateTagApp.format.date;
     let date = new Date(value);
