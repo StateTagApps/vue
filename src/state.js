@@ -44,53 +44,13 @@ stateTagApp["storage"] = new Vuex.Store({
     }
 });
 
-stateTagApp["storage"].watch(
-    function (state) {
-        return state.msg.en;
-    },
-    function (fresh, stale) {
-        let log = 'Global watcher heard change from '
-            .concat(stale)
-            .concat(' to ')
-            .concat(fresh);
-
-        stateTagApp.log(log);
-    }
-);
-
-stateTagApp["storage"].watch(
-    function (state) {
-        return state.msg.fr;
-    },
-    function (fresh, stale) {
-        let log = 'Global watcher heard change from '
-            .concat(stale)
-            .concat(' to ')
-            .concat(fresh);
-
-        stateTagApp.log(log);
-    }
-);
-
-stateTagApp["storage"].watch(
-    function (state) {
-        return state.msg.sp;
-    },
-    function (fresh, stale) {
-        let log = 'Global watcher heard change from '
-            .concat(stale)
-            .concat(' to ')
-            .concat(fresh);
-
-        stateTagApp.log(log);
-    }
-);
-
 stateTagApp["state"]["sta"]["context"] = null;
 stateTagApp["$read"] = stateTagApp.storage.getters.$read;
 stateTagApp["$write"] = function (locus, value) {
     stateTagApp.storage.dispatch('write', {locus, value});
 }
 stateTagApp["$execute"] = stateTagApp.storage.dispatch;
+
+initGlobalStateWatchers(stateTagApp["storage"]);
 
 export default stateTagApp["storage"];
