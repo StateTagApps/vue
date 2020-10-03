@@ -1,9 +1,16 @@
 <template>
-  <div>
+  <div v-if="withButton">
     <span>{{ locus }}: </span>
     <input type="text" v-model="txt">
     <button @click="submit">submit</button>
   </div>
+
+  <input v-else
+         type="text"
+         v-model="txt"
+         ref="input"
+         @change.prevent="$write(locus, $refs['input'].value)"
+  >
 </template>
 
 <script>
@@ -13,6 +20,11 @@ export default {
     locus: {
       type: String,
       required: true
+    },
+
+    withButton: {
+      type: Boolean,
+      default: true
     }
   },
 
