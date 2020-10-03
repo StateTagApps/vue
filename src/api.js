@@ -104,18 +104,6 @@ export default {
 
             methods: {
 
-                privateAutoCancel: function (caller, uid) {
-                    let key = caller + '-' + uid;
-
-                    if (!_.isEmpty(requests[key])) {
-                        requests[key].cancel();
-                    }
-
-                    let cancel = axios.CancelToken.source();
-                    requests[key] = cancel;
-                    return cancel.token;
-                },
-
                 $api: function (endpoint, caller, post, method) {
                     let config = {};
                     let headers = {};
@@ -159,6 +147,18 @@ export default {
                         });
 
                     return promis;
+                },
+
+                privateAutoCancel: function (caller, uid) {
+                    let key = caller + '-' + uid;
+
+                    if (!_.isEmpty(requests[key])) {
+                        requests[key].cancel();
+                    }
+
+                    let cancel = axios.CancelToken.source();
+                    requests[key] = cancel;
+                    return cancel.token;
                 }
             }
         });
