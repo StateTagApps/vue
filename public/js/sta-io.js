@@ -15,7 +15,7 @@ function recieveStateTagAppBroadcast(message) {
     } catch (e) {
         return;
     }
-    if (_.isUndefined(staMessage.app) || staMessage.app != 'stateTagApp') {
+    if (_.isUndefined(staMessage.app) || staMessage.app != 'stateTagApp'.concat(':').concat(stateTagApp.namespace)) {
         return;
     }
 
@@ -31,21 +31,21 @@ stateTagApp["$broadcast"] = function (data) {
     let desired = ['app', 'type', 'from', 'event'];
     let required = [];
 
-    data['app'] = 'stateTagApp';
+    data['app'] = 'stateTagApp'.concat(':').concat(stateTagApp.namespace);
 
     if (!_.isNull(stateTagApp.$read('sta.context'))) {
         data['context'] = stateTagApp.$read('sta.context');
     }
 
-    privateValidateStaEvent(data, desired, console.log);
-    if (privateValidateStaEvent(data, required, function (msg) {
+    staValidateStaEvent(data, desired, console.log);
+    if (staValidateStaEvent(data, required, function (msg) {
         alert(msg);
     })) {
         window.parent.postMessage(JSON.stringify(data), '*');
     }
 }
 
-function privateValidateStaEvent(data, spec, onFailCallback) {
+function staValidateStaEvent(data, spec, onFailCallback) {
 
     for (var r of spec) {
         if (_.isEmpty(data[r]) && !_.isNumber(data[r])) {
@@ -65,7 +65,7 @@ function privateValidateStaEvent(data, spec, onFailCallback) {
     return true;
 }
 
-function privateBindEvent(element, eventName, eventHandler) {
+function staBindEvent(element, eventName, eventHandler) {
     if (element.addEventListener) {
         element.addEventListener(eventName, eventHandler, false);
     } else if (element.attachEvent) {
@@ -74,5 +74,5 @@ function privateBindEvent(element, eventName, eventHandler) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    privateBindEvent(window, "message", recieveStateTagAppBroadcast);
+    staBindEvent(window, "message", recieveStateTagAppBroadcast);
 });
