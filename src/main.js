@@ -37,8 +37,8 @@ if (!_.isUndefined(stateTagApp.socket)) {
     stateTagApp.socket = stateTagApp.socket[process.env.NODE_ENV];
     stateTagApp['socketIo'] = io(stateTagApp.socket);
 
-    stateTagApp['$onSocket'] = function(event, callback){
-        stateTagApp['socketIo'].on(event, callback);
+    stateTagApp['$onSocket'] = function(event, handler){
+        stateTagApp['socketIo'].on(event, handler);
     }
 
     Vue.use(VueSocketIOExt, stateTagApp['socketIo']);
