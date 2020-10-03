@@ -21,10 +21,6 @@ stateTagApp["storage"] = new Vuex.Store({
     },
 
     actions: {
-        setEventContext: ({commit, state}, value) => {
-            commit("applyState", {locus: 'context', value})
-        },
-
         write: ({commit, state}, payload) => {
             commit("applyState", payload);
         },
@@ -33,7 +29,7 @@ stateTagApp["storage"] = new Vuex.Store({
             let tmp = JSON.parse(JSON.stringify(stateTagApp["state"]));
             Object.keys(tmp)
                 .forEach((locus, index) => {
-                    if(locus == 'context'){
+                    if(locus == 'sta'){
                         return;
                     }
                     commit("applyState", {locus, value: tmp[locus]});

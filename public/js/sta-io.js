@@ -1,12 +1,12 @@
-stateTagApp["state"]["context"] = null;
+stateTagApp["state"]["sta"]["context"] = null;
 
 stateTagApp["commands"] = {
     setEventContext:function (context){
-        stateTagApp.$execute('setEventContext', context);
+        stateTagApp.$write('sta.context', context);
     },
 
     clearEventContext:function (){
-        stateTagApp.$execute('setEventContext', null);
+        stateTagApp.$write('sta.context', null);
     },
 
     resetState:function (){
@@ -39,8 +39,8 @@ stateTagApp["$broadcast"] = function (data) {
 
     data['app'] = 'stateTagApp';
 
-    if (!_.isNull(stateTagApp.$read('context'))) {
-        data['context'] = stateTagApp.$read('context');
+    if (!_.isNull(stateTagApp.$read('sta.context'))) {
+        data['context'] = stateTagApp.$read('sta.context');
     }
 
     privateValidateStaEvent(data, desired, console.log);
