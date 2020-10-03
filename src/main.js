@@ -38,17 +38,6 @@ if (!_.isUndefined(stateTagApp.socket)) {
     Vue.use(VueSocketIOExt, socket);
 }
 
-Vue.filter('fromCamelToWords', function (str) {
-    return str
-        .replace(/[0-9]{2,}/g, match => ` ${match} `)
-        .replace(/[^A-Z0-9][A-Z]/g, match => `${match[0]} ${match[1]}`)
-        .replace(/[A-Z][A-Z][^A-Z0-9]/g, match => `${match[0]} ${match[1]}${match[2]}`)
-        .replace(/[ ]{2,}/g, match => ' ')
-        .replace(/\s./g, match => match.toUpperCase())
-        .replace(/^./, match => match.toUpperCase())
-        .trim();
-});
-
 Vue.filter("date", function (value, format) {
     format = format || stateTagApp.format.date;
     let date = new Date(value);
