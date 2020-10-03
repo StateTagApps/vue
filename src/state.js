@@ -97,11 +97,11 @@ stateTagApp["storage"].watch(
     }
 );
 
-stateTagApp["read"] = stateTagApp.storage.getters.$read;
-stateTagApp["write"] = function (locus, value) {
+stateTagApp["$read"] = stateTagApp.storage.getters.$read;
+stateTagApp["$write"] = function (locus, value) {
     stateTagApp.storage.dispatch('write', {locus, value});
 }
-stateTagApp["execute"] = stateTagApp.storage.dispatch;
-stateTagApp["watch"] = stateTagApp["storage"].watch;
+stateTagApp["$execute"] = stateTagApp.storage.dispatch;
+
 
 export default stateTagApp["storage"];
