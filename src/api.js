@@ -67,7 +67,6 @@ axios.interceptors.response.use(
 
         count--;
         data.event = 'decrement';
-        //window.parent.postMessage(JSON.stringify(data), '*');
 
         if (!count) {
             data.event = 'stop';
@@ -86,7 +85,7 @@ axios.interceptors.response.use(
 
         count--;
         data.event = 'decrement';
-        //window.parent.postMessage(JSON.stringify(data), '*');
+
         if (!count) {
             NProgress.done(true);
             data.event = 'stop';
