@@ -35,9 +35,16 @@ import io from 'socket.io-client';
 
 if (!_.isUndefined(stateTagApp.socket)) {
     stateTagApp.socket = stateTagApp.socket[process.env.NODE_ENV];
-    const socket = io(stateTagApp.socket);
-    Vue.use(VueSocketIOExt, socket);
+    stateTagApp['socketIo'] = io(stateTagApp.socket);
+
+    stateTagApp['$onSocket'] = function(event, callback){
+        stateTagApp['socketIo'].on(event, callback);
+    }
+
+    Vue.use(VueSocketIOExt, stateTagApp['socketIo']);
 }
+
+
 
 Vue.filter("date", function (value, format) {
     format = format || stateTagApp.format.date;
