@@ -8,8 +8,8 @@ const stateTagApp = {
     },
 
     api: {
-        production: "https://data.StateTagApp.com",
-        development: "https://data.StateTagApp.com"
+        production: "https://data.StateTagApps.com",
+        development: "https://data.StateTagApps.com"
     },
 
     //optional
