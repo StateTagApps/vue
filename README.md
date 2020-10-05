@@ -15,6 +15,6 @@ It's kind of insane.  We should have been doing it this way all along.
 ## Documentation & Licensing
 Certain implementations using this technique are restricted by US business process patents.  However, licensing is cheap & simple.
 
-[Go to http://Statetagapps.com for developer information, training, and licensing.](https://Statetagapps.com)
+[Go to http://StateTagApps.com for developer information, training, and licensing.](https://StateTagApps.com)
 
 As a trained developer you will be able to register and issue project licenses to yourself and your clients.
