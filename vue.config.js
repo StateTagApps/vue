@@ -4,7 +4,7 @@ module.exports = {
   lintOnSave: false,
   filenameHashing: false,
   pages: {
-    'x-html': {
+    html: {
       entry: 'src/main.js',
       filename: 'index.html'
     }
