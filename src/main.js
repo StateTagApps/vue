@@ -1,4 +1,4 @@
-stateTagApp.log("Reservation-stateTagApp: #stateTagAppVersion#");
+stateTagApp.log(stateTagApp.namespace.concat("-html: #stateTagAppVersion#"));
 
 import _ from "lodash";
 import buildUrl from "build-url";
