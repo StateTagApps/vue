@@ -12,9 +12,10 @@ Single Page Apps (SPAs) are great.  Just one question... what do we need the pag
 
 It's kind of insane.  We should have been doing it this way all along.
 
-## Documentation & Licensing
+## Documentation, Videos, Licensing Walkthru... 
 Certain implementations using this technique are restricted by US business process patents.  However, licensing is cheap & simple.
 
-[Go to http://StateTagApps.com for developer information, training, and licensing.](https://StateTagApps.com)
+[Go to StateTagApps.com for developer information, training, and licensing.](https://StateTagApps.com)
 
-As a trained developer you will be able to register and issue project licenses to yourself and your clients.
+## Just Licensing
+[Go to html-tags.io for licensing.](https://html-tags.io)
