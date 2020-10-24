@@ -12,10 +12,9 @@ Single Page Apps (SPAs) are great.  Just one question... what do we need the pag
 
 It's kind of insane.  We should have been doing it this way all along.
 
-## Documentation, Videos, Licensing Walkthru... 
+## Documentation, Videos, Licensing/Namespacing Walkthru... 
 Certain implementations using this technique are restricted by US business process patents.  However, licensing is cheap & simple.
 
-[Go to StateTagApps.com for developer information, training, and licensing.](https://StateTagApps.com)
+[Go to StateTagApps.com for developer information, training, and licensing walkthru.](https://StateTagApps.com)
 
-## Just Licensing
-[Go to html-tags.io for licensing.](https://html-tags.io)
+[Go to html-tags.io for licensing or to reserve your namespaces.](https://html-tags.io)
