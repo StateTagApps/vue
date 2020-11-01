@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --no-clean",
+    "deploy": "yarn build && git -C dist add . && git -C dist commit -m 'deploy' && git -C dist push --force origin master",
     "lint": "vue-cli-service lint",
     "test": "jest"
   },
