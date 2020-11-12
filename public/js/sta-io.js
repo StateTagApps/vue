@@ -3,8 +3,16 @@ stateTagApp["commands"] = {
         stateTagApp.$write('sta.context', context);
     },
 
-    clearEventContext:function (){
-        stateTagApp.$write('sta.context', null);
+    getEventContext:function (){
+        return stateTagApp.$read('sta.context');
+    },
+
+    clear:function(){
+        stateTagApp.$execute('resetState')
+    },
+
+    reset:function(){
+        stateTagApp.$execute('resetApp')
     }
 };
 
