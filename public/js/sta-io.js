@@ -1,6 +1,7 @@
 stateTagApp["commands"] = {
     setEventContext:function (context){
         stateTagApp.$write('sta.context', context);
+        return stateTagApp.$read('sta.context');
     },
 
     getEventContext:function (){
