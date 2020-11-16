@@ -1,4 +1,4 @@
-stateTagApp.log(stateTagApp.namespace.concat("-html: #stateTagAppVersion#"));
+stateTagApp.log(stateTagApp.namespace.concat("-html: #BUILD#"));
 
 import _ from "lodash";
 import buildUrl from "build-url";

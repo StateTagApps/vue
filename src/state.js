@@ -3,7 +3,7 @@ import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
 
 const vuexPersist = new VuexPersist({
-    key: stateTagApp['namespace'].concat("-#stateTagAppVersion#"),
+    key: stateTagApp['namespace'].concat("-#BUILD#"),
     storage: stateTagApp.disk
 });
 
