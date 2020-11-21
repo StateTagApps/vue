@@ -40,9 +40,9 @@
 <h1>State Example</h1>
 <code><x-text-html service="state" src="msg"></x-text-html></code>
 <p>
-    <x-text-html service="state" src="msg" property="en"></x-text-html>,
-    <x-text-html service="state" src="msg" property="sp"></x-text-html>,
-    <x-text-html service="state" src="msg" property="fr"></x-text-html>
+    <x-text-html service="state" locus="msg.en"></x-text-html>,
+    <x-text-html service="state" locus="msg.sp"></x-text-html>,
+    <x-text-html service="state" locus="msg.fr"></x-text-html>
 </p>
 
 <p><i>Please open your browser's dev console to see state watchers firing.</i></p>
@@ -64,11 +64,11 @@
 <code><x-text-html src="/HelloWorld/TextHtml.json"></x-text-html></code>
 
 <h1>
-    <x-text-html src="/HelloWorld/TextHtml.json" property="en"></x-text-html>
+    <x-text-html src="/HelloWorld/TextHtml.json" locus="en"></x-text-html>
     ,
-    <x-text-html src="/HelloWorld/TextHtml.json" property="es"></x-text-html>
+    <x-text-html src="/HelloWorld/TextHtml.json" locus="es"></x-text-html>
     ,
-    <x-text-html src="/HelloWorld/TextHtml.json" property="fr"></x-text-html>
+    <x-text-html src="/HelloWorld/TextHtml.json" locus="fr"></x-text-html>
 </h1>
 
 <hr/>
@@ -76,7 +76,7 @@
 <h1>Socket Example</h1>
 <x-socket-status>The socket is </x-socket-status>.
 <code><x-text-html service="socket" src="timecast" waiting-msg="Waiting for push data to arrive."></x-text-html></code>
-<p><x-text-html service="socket" src="timecast" property="stamp"></x-text-html></p>
+<p><x-text-html service="socket" src="timecast" locus="stamp"></x-text-html></p>
 
 </body>
 </html>

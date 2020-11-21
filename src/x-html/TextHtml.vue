@@ -28,7 +28,7 @@ export default {
       default: "div,span"
     },
 
-    property: {
+    locus: {
       type: String,
       default: null
     },
@@ -70,14 +70,7 @@ export default {
     content: function () {
       switch (true) {
         case (this.service == 'state'):
-          let locus = this.src;
-
-          if (!_.isEmpty(this.property)) {
-            locus = locus.concat('.')
-                .concat(this.property)
-          }
-
-          return this.$read(locus);
+          return this.$read(this.locus);
           break;
 
         case (this.privateLoading):
@@ -102,10 +95,10 @@ export default {
 
     listenForContentFromSocket: function (event) {
       this.$onSocket(event, payload => {
-        if (_.isEmpty(this.property)) {
+        if (_.isEmpty(this.locus)) {
           this.privateContent = payload;
         } else {
-          this.privateContent = _.get(payload, this.property);
+          this.privateContent = _.get(payload, this.locus);
         }
         this.privateLoading = false;
       });
@@ -119,18 +112,18 @@ export default {
       }
 
       var data = this.$data;
-      var property = this.property
+      var locus = this.locus
 
       this.$api(src, 'setContentFromSrc')
           .then(function (response) {
-            if (_.isEmpty(property)) {
+            if (_.isEmpty(locus)) {
               data.privateContent = response.data;
             } else {
-              data.privateContent = _.get(response.data, property);
+              data.privateContent = _.get(response.data, locus);
             }
             data.privateLoading = false;
           }.bind(data)
-              .bind(property));
+              .bind(locus));
     }
   },
 
