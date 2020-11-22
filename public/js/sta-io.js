@@ -17,7 +17,7 @@ stateTagApp["commands"] = {
     }
 };
 
-function recieveStateTagAppBroadcast(message) {
+function receiveStateTagAppBroadcast(message) {
     let staMessage;
     try {
         staMessage = JSON.parse(message.data);
@@ -83,5 +83,5 @@ function staBindEvent(element, eventName, eventHandler) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    staBindEvent(window, "message", recieveStateTagAppBroadcast);
+    staBindEvent(window, "message", receiveStateTagAppBroadcast);
 });
