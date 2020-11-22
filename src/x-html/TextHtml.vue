@@ -70,22 +70,18 @@ export default {
       switch (true) {
         case (this.service == 'state'):
           return this.$read(this.locus);
-          break;
 
         case (this.privateLoading):
           return {
             api: 'loading...',
             socket: (this.$socket.disconnected) ? this.connectingMsg : this.waitingMsg
           }[this.service];
-          break;
 
         case (!_.isNull(this.privateContent)):
           return this.privateContent;
-          break;
 
         default:
           return 'error';
-          break;
       }
     }
   },
@@ -110,8 +106,8 @@ export default {
             .concat(src);
       }
 
-      var data = this.$data;
-      var locus = this.locus
+      let data = this.$data;
+      let locus = this.locus
 
       this.$api(src, 'setContentFromSrc')
           .then(function (response) {
