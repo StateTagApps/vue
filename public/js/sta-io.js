@@ -56,7 +56,7 @@ stateTagApp["$broadcast"] = function (data) {
 
 function staValidateStaEvent(data, spec, onFailCallback) {
 
-    for (var r of spec) {
+    for (let r of spec) {
         if (_.isEmpty(data[r]) && !_.isNumber(data[r])) {
             let msg = 'Missing staMessage element: '
                 .concat(r)
