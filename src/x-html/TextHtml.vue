@@ -38,14 +38,13 @@ export default {
       default: false
     },
 
+    src: {
+      type: String
+    },
+
     service: {
       type: String,
       default: ['api', 'socket', 'state'][0]
-    },
-
-    src: {
-      required: true,
-      type: String
     },
 
     connectingMsg: {
