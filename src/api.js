@@ -2,6 +2,7 @@ import _ from "lodash";
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
+import { cacheAdapterEnhancer } from 'axios-extensions';
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
@@ -86,6 +87,7 @@ axios.interceptors.response.use(
     }
 );
 
+axios.defaults.adapter = cacheAdapterEnhancer(axios.defaults.adapter)
 Vue.use(VueAxios, axios);
 
 export default {
