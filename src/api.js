@@ -2,8 +2,6 @@ import _ from "lodash";
 import Vue from "vue";
 import axios from "axios";
 import VueAxios from "vue-axios";
-import { setupCache } from 'axios-cache-adapter'
-import buildUrl from "build-url";
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
@@ -88,11 +86,6 @@ axios.interceptors.response.use(
     }
 );
 
-const cache = setupCache({
-    maxAge: stateTagApp.cacheTimeout
-});
-
-axios.defaults.adapter = cache.adapter;
 Vue.use(VueAxios, axios);
 
 export default {

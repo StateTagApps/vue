@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "axios-cache-adapter": "^2.5.0",
     "build-url": "^2.0.0",
     "lodash": "^4.17.20",
     "minimist": "^1.2.5",
