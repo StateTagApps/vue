@@ -1,7 +1,7 @@
 {
-  "name": "reservation-cnd",
-  "version": "0.1.01",
-  "private": true,
+  "name": "sta-vue",
+  "version": "1.0.0",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-clean",
