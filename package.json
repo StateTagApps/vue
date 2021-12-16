@@ -8,31 +8,32 @@
     "deploy": "git -C dist pull && yarn build && git -C dist add . && git -C dist commit -m 'deploy' && git -C dist push --force origin master"
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.21.1",
     "axios-extensions": "^3.1.3",
     "build-url": "^2.0.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.20",
     "minimist": "^1.2.5",
-    "socket.io-client": "^4.4.0",
-    "vue": "^2.6.14",
-    "vue-axios": "^3.4.0",
-    "vue-custom-element": "^3.3.0",
+    "socket.io-client": "^2.3.1",
+    "vue": "^2.6.12",
+    "vue-axios": "^2.1.5",
+    "vue-custom-element": "^3.2.14",
     "vue-moment": "^4.1.0",
-    "vue-nprogress": "^0.2.0",
-    "vue-router": "^3.5.3",
-    "vue-socket.io-extended": "^4.2.0",
-    "vuex": "^3.6.2",
-    "vuex-persist": "^3.1.3"
+    "vue-nprogress": "^0.1.5",
+    "vue-router": "^3.4.5",
+    "vue-socket.io-extended": "^4.0.5",
+    "vuex": "^3.5.1",
+    "vuex-persist": "^2.3.0"
   },
   "devDependencies": {
-    "@babel/runtime-corejs3": "^7.16.5",
-    "@vue/cli-plugin-babel": "^4.5.15",
-    "@vue/cli-service": "^4.5.15",
+    "@babel/runtime-corejs3": "^7.11.2",
+    "@vue/cli-plugin-babel": "^3.3.0",
+    "@vue/cli-service": "^3.12.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-preset-env": "^1.7.0",
-    "core-js": "^3.20.0",
-    "regenerator-runtime": "^0.13.9",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^5.65.0"
+    "core-js": "^3.6.5",
+    "regenerator-runtime": "^0.13.7",
+    "style-loader": "^1.2.1",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.46.0"
   }
 }
