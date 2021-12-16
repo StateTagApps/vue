@@ -5,9 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-clean",
-    "deploy": "git -C dist pull && yarn build && git -C dist add . && git -C dist commit -m 'deploy' && git -C dist push --force origin master",
-    "lint": "vue-cli-service lint",
-    "test": "jest"
+    "deploy": "git -C dist pull && yarn build && git -C dist add . && git -C dist commit -m 'deploy' && git -C dist push --force origin master"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -29,55 +27,18 @@
   "devDependencies": {
     "@babel/runtime-corejs3": "^7.11.2",
     "@vue/cli-plugin-babel": "^3.3.0",
-    "@vue/cli-plugin-eslint": "^3.1.1",
     "@vue/cli-service": "^3.12.1",
-    "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.1.0",
     "axios-mock-adapter": "^1.18.2",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^10.1.0",
-    "babel-jest": "^25.5.1",
     "babel-preset-env": "^1.7.0",
     "core-js": "^3.6.5",
-    "eslint": "^8.4.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-vue": "^8.2.0",
-    "jest": "^27.4.5",
-    "jest-css-modules": "^2.1.0",
     "node-sass": "^7.0.0",
     "prettier": "^1.19.1",
     "regenerator-runtime": "^0.13.7",
     "sass-loader": "^12.4.0",
     "style-loader": "^1.2.1",
-    "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.46.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less|scss|sss|styl)$": "<rootDir>/node_modules/jest-css-modules"
-    },
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "vue"
-    ],
-    "transform": {
-      ".*\\.(vue)$": "vue-jest",
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
-    },
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "**/*.{js,vue}",
-      "!**/node_modules/**",
-      "!**/dist/**",
-      "!**/coverage/**",
-      "!**config.js",
-      "!src/main.js"
-    ],
-    "coverageReporters": [
-      "html",
-      "text-summary"
-    ]
   }
 }
