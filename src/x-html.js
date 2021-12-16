@@ -1,4 +1,5 @@
 import {mapGetters} from "vuex";
+import buildUrl from "build-url";
 
 const XHtml = {
     install(Vue, opts) {
@@ -13,6 +14,12 @@ const XHtml = {
 
             methods: {
                 log: stateTagApp.log,
+                buildUrl: buildUrl,
+                isUrl: function (url) {
+                    if (typeof url != "string") return false;
+                    return (url.substr(0, 4) == "http"
+                        || url.substr(0, 2) == "//");
+                },
                 $write: stateTagApp.$write,
                 $execute: stateTagApp.$execute,
                 $broadcast: stateTagApp.$broadcast,

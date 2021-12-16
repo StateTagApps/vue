@@ -1,7 +1,6 @@
 stateTagApp.log(stateTagApp.namespace.concat("-html: #BUILD#"));
 
 import _ from "lodash";
-import buildUrl from "build-url";
 import Vue from "vue";
 import vueCustomElement from "vue-custom-element";
 
@@ -13,15 +12,6 @@ Vue.config.productionTip = {
     production: true,
     development: false
 }[process.env.NODE_ENV];
-
-_.mixin({
-    isUrl: function (url) {
-        if (typeof url != "string") return false;
-        return (url.substr(0, 4) == "http"
-            || url.substr(0, 2) == "//");
-    },
-    buildUrl: buildUrl
-});
 
 Vue.prototype._ = _;
 

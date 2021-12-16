@@ -101,7 +101,7 @@ export default {
 
     setContentFromSrc: function (src) {
 
-      if (src.indexOf('http') !== 0) {
+      if (!this.isUrl(src)) {
         src = stateTagApp.api
             .concat(src);
       }
