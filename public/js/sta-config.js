@@ -16,6 +16,6 @@ const stateTagApp = {
     //optional
     socket: {
         production: "https://timesocket.io:3030",
-        development: "https://timesocket.io:3030"
+        development: "http://timesocket.io:3131"
     }
 }
