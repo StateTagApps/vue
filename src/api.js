@@ -6,6 +6,8 @@ import { cacheAdapterEnhancer } from 'axios-extensions';
 import "nprogress/nprogress.css";
 import NProgress from "nprogress";
 
+stateTagApp['api'] = stateTagApp['api'][process.env.NODE_ENV];
+
 const requests = {};
 
 NProgress.configure({

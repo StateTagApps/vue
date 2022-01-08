@@ -20,10 +20,15 @@ import {v4 as uuidv4} from 'uuid';
 
 stateTagApp['uuid'] = uuidv4;
 
-stateTagApp['api'] = stateTagApp['api'][process.env.NODE_ENV];
+
 import Api from "./api";
 
 Vue.use(Api);
+
+
+import Nebula from "./nebula";
+
+Vue.use(Nebula);
 
 import VueSocketIOExt from 'vue-socket.io-extended';
 import io from 'socket.io-client';
