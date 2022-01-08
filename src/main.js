@@ -4,6 +4,8 @@ import _ from "lodash";
 import Vue from "vue";
 import vueCustomElement from "vue-custom-element";
 
+stateTagApp.Vue = Vue;
+stateTagApp.env = process.env.NODE_ENV;
 
 Vue.use(vueCustomElement);
 Vue.use(require("vue-moment"));
@@ -14,6 +16,9 @@ Vue.config.productionTip = {
 }[process.env.NODE_ENV];
 
 Vue.prototype._ = _;
+import {v4 as uuidv4} from 'uuid';
+
+stateTagApp['uuid'] = uuidv4;
 
 stateTagApp['api'] = stateTagApp['api'][process.env.NODE_ENV];
 import Api from "./api";
@@ -40,14 +45,20 @@ Vue.filter("date", function (value, format) {
     return stateTagApp.Vue.moment(date).format(format)
 });
 
+import state from "./state";
+
+let appId = stateTagApp.$read('sta.appId');
+if(_.isUndefined(appId)){
+    appId = uuidv4();
+    stateTagApp.$write('sta.appId', appId);
+}
+
 initGlobalStateWatchers(stateTagApp["storage"]);
 initGlobalSocketWatchers();
 
 import XHtml from "./x-html";
 Vue.use(XHtml);
 import Manifest from "@/x-html/manifest";
-
-import state from "./state";
 
 for (let tag in Manifest) {
     Manifest[tag].store = state;

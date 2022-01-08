@@ -13,9 +13,13 @@ const stateTagApp = {
         development: "https://data.StateTagApps.com"
     },
 
-    //optional
     socket: {
         production: "https://timesocket.io:3030",
         development: "http://timesocket.io:3131"
+    },
+
+    nebula: {
+        production: "https://json-data.io:8080",
+        development: "http://json-data.io:8181"
     }
 }
