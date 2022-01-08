@@ -78,9 +78,12 @@
 <code><x-text-html service="socket" src="timecast" waiting-msg="Waiting for push data to arrive."></x-text-html></code>
 <p><x-text-html service="socket" src="timecast" locus="stamp"></x-text-html></p>
 
-<h1>Nebula</h1>
-<p>Experimental cloud service for connecting your STA to it's peers around the world.</p>
+<h1>Nebula Service Demo</h1>
+<p>Experimental cloud service for connecting your STA to it's peers around the world.  If you would like to play with it then open this page in your secondary browser or a private browsing window.  You will see that the text is shared accross the cloud by a distributed graph db.</p>
+<code>
 <x-input service="nebula" locus="demo"></x-input>
-<x-text-html service="nebula" locus="demo"></x-text-html>
+Whatever people around the world type into that box appears bellow:<br/>
+    <b><x-text-html service="nebula" locus="demo"></x-text-html></b>
+</code>
 </body>
 </html>
