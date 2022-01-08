@@ -61,14 +61,14 @@
 
 <h1>API Example</h1>
 
-<code><x-text-html src="/HelloWorld/TextHtml.json"></x-text-html></code>
+<code><x-text-html service="api" src="/HelloWorld/TextHtml.json"></x-text-html></code>
 
 <h1>
-    <x-text-html src="/HelloWorld/TextHtml.json" locus="en"></x-text-html>
+    <x-text-html service="api" src="/HelloWorld/TextHtml.json" locus="en"></x-text-html>
     ,
-    <x-text-html src="/HelloWorld/TextHtml.json" locus="es"></x-text-html>
+    <x-text-html service="api" src="/HelloWorld/TextHtml.json" locus="es"></x-text-html>
     ,
-    <x-text-html src="/HelloWorld/TextHtml.json" locus="fr"></x-text-html>
+    <x-text-html service="api" src="/HelloWorld/TextHtml.json" locus="fr"></x-text-html>
 </h1>
 
 <hr/>
@@ -78,5 +78,8 @@
 <code><x-text-html service="socket" src="timecast" waiting-msg="Waiting for push data to arrive."></x-text-html></code>
 <p><x-text-html service="socket" src="timecast" locus="stamp"></x-text-html></p>
 
+<h1>Nebula</h1>
+<x-input service="nebula" locus="demo-input"></x-input>
+<x-text-html service="nebula" locus="demo-input"></x-text-html>
 </body>
 </html>

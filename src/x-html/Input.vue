@@ -22,6 +22,11 @@ export default {
       required: true
     },
 
+    service: {
+      type: String,
+      default: ['state', 'nebula'][0]
+    },
+
     withButton: {
       type: Boolean,
       default: true
@@ -33,28 +38,25 @@ export default {
   },
   methods: {
     submit: function () {
-      this.$write(this.locus, this.txt);
-      this.txt = '';
+      switch (this.service) {
+
+        case 'state':
+          this.$write(this.locus, this.txt);
+          this.txt = '';
+          break;
+
+        case 'nebula':
+          this.$nebula(this.locus, this.txt);
+          this.txt = '';
+          break;
+      }
     }
   },
 
-  computed: {
-    anything: function () {
-      return this.$read(this.locus);
-    },
-  },
-
-  watch: {
-    anything: function (fresh, stale) {
-      let log = 'Local watcher heard '
-          .concat(this.locus)
-          .concat(' changed from ')
-          .concat(stale)
-          .concat(' to ')
-          .concat(fresh);
-
-      this.log(log);
-    }
+  mounted: function (){
+    this.$onNebula(this.locus, function (val){
+      console.log(val);
+    })
   }
 }
 </script>

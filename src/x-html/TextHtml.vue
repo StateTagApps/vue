@@ -44,7 +44,7 @@ export default {
 
     service: {
       type: String,
-      default: ['api', 'socket', 'state'][0]
+      default: ['state', 'api', 'socket', 'nebula'][0]
     },
 
     connectingMsg: {
@@ -124,6 +124,10 @@ export default {
 
   mounted: function () {
     switch (this.service) {
+      case 'state':
+        this.privateLoading = false;
+        break;
+
       case 'api':
         this.setContentFromSrc(this.src);
         break;
@@ -132,8 +136,11 @@ export default {
         this.listenForContentFromSocket(this.src);
         break;
 
-      case 'state':
-        this.privateLoading = false;
+      case 'nebula':
+        this.$onNebula(this.locus, (val) => {
+          this.privateLoading = false;
+          this.privateContent = val;
+        })
         break;
     }
   }
