@@ -2,6 +2,7 @@ stateTagApp.log(stateTagApp.namespace.concat("-html: #BUILD#"));
 
 import _ from "lodash";
 import Vue from "vue";
+//import router from './router';
 import vueCustomElement from "vue-custom-element";
 
 stateTagApp.Vue = Vue;
