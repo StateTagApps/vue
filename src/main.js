@@ -52,6 +52,7 @@ Vue.filter("date", function (value, format) {
 });
 
 import state from "./state";
+import router from "./routes"
 
 let appId = stateTagApp.$read('sta.appId');
 if(_.isUndefined(appId)){
@@ -61,6 +62,7 @@ if(_.isUndefined(appId)){
 
 initGlobalStateWatchers(stateTagApp["storage"]);
 initGlobalSocketWatchers();
+initGlobalNebulaWatchers();
 
 import XHtml from "./x-html";
 Vue.use(XHtml);
@@ -68,5 +70,6 @@ import Manifest from "@/x-html/manifest";
 
 for (let tag in Manifest) {
     Manifest[tag].store = state;
+    Manifest[tag].router = router;
     Vue.customElement(tag, Manifest[tag]);
 }

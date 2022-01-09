@@ -9,6 +9,21 @@ Vue.use(VueGun, {
     peers: [stateTagApp['nebula'].concat(['/g', 'un'].join(''))]
 });
 
+stateTagApp['$onNebula'] = function(key, callback){
+    Vue.prototype.$gun
+        .get(stateTagApp.namespace)
+        .get(key)
+        .on(callback, {change: true});
+}
+
+stateTagApp['$nebula'] = function(key, val){
+    Vue.prototype.$gun
+        .get(stateTagApp.namespace)
+        .put({[key]: val}, function (ack) {
+            //console.log(ack);
+        });
+}
+
 export default {
     install(Vue, opts) {
         Vue.mixin({
