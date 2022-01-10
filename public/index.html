@@ -40,10 +40,14 @@
 </head>
 <body>
 <h1>State Example</h1>
-<code><x-text-html service="state" locus="msg"></x-text-html></code>
+<code>
+    <x-text-html service="state" locus="msg"></x-text-html>
+</code>
 <p>
-    <x-text-html service="state" locus="msg.en"></x-text-html>,
-    <x-text-html service="state" locus="msg.sp"></x-text-html>,
+    <x-text-html service="state" locus="msg.en"></x-text-html>
+    ,
+    <x-text-html service="state" locus="msg.sp"></x-text-html>
+    ,
     <x-text-html service="state" locus="msg.fr"></x-text-html>
 </p>
 
@@ -53,17 +57,19 @@
 <br/>
 <x-input locus="msg.sp"></x-input>
 <br/>
-<x-input locus="msg.fr"></x-input>
+<x-input with-button="false" locus="msg.fr"></x-input>
 <br/>
 <p>
-<a href="index.html">Try reloading, your state changes will persist.</a>
+    <a href="index.html">Try reloading, your state changes will persist.</a>
 </p>
 <button onclick="stateTagApp.$execute('resetApp')">reset state</button>
 <hr/>
 
 <h1>API Example</h1>
 
-<code><x-text-html service="api" src="/HelloWorld/TextHtml.json"></x-text-html></code>
+<code>
+    <x-text-html service="api" src="/HelloWorld/TextHtml.json"></x-text-html>
+</code>
 
 <h1>
     <x-text-html service="api" src="/HelloWorld/TextHtml.json" locus="en"></x-text-html>
@@ -76,17 +82,31 @@
 <hr/>
 
 <h1>Socket Example</h1>
-<x-socket-status>The socket is </x-socket-status>.
-<code><x-text-html service="socket" src="timecast" waiting-msg="Waiting for push data to arrive."></x-text-html></code>
-<p><x-text-html service="socket" src="timecast" locus="stamp"></x-text-html></p>
+<x-socket-status>The socket is</x-socket-status>
+.
+<code>
+    <x-text-html service="socket" src="timecast" waiting-msg="Waiting for push data to arrive."></x-text-html>
+</code>
+<p>
+    <x-text-html service="socket" src="timecast" locus="stamp"></x-text-html>
+</p>
 
 <h1>Nebula Service Demo</h1>
-<p>Experimental cloud service for connecting your STA to it's peers around the world.  If you would like to play with it then open this page in your secondary browser or a private browsing window.  You will see that the text is shared accross the cloud by a distributed graph db.</p>
-<p>This service is "experimental" because some browsers do not intake data when they are backgrounded.  This service is only reliable when the target browser is the front/focused running application.</p>
+<p>Experimental cloud service for connecting your STA to it's peers around the world. If you would like to play with it
+    then open this page in your secondary browser or a private browsing window. You will see that the text is shared
+    accross the cloud by a distributed graph db.</p>
+<p>This service is "experimental" because some browsers do not intake data when they are backgrounded. This service is
+    only reliable when the target browser is the front/focused running application.</p>
 <code>
-<x-input service="nebula" locus="demo"></x-input>
-Whatever people around the world type into that box appears bellow:<br/>
-    <b><x-text-html service="nebula" locus="demo"></x-text-html></b>
+    <x-input service="nebula" locus="demo"></x-input>
+    Whatever people around the world type into that box appears bellow:<br/>
+    <b>
+        <x-text-html service="nebula" locus="demo"></x-text-html>
+    </b>
 </code>
+
+<h1>Nebula Link</h1>
+<x-nebula-qr locus="msg.sp"></x-nebula-qr>
+
 </body>
 </html>
