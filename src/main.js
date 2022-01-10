@@ -54,10 +54,10 @@ Vue.filter("date", function (value, format) {
 import state from "./state";
 import router from "./routes"
 
-let appId = stateTagApp.$read('sta.appId');
-if(_.isUndefined(appId)){
-    appId = uuidv4();
-    stateTagApp.$write('sta.appId', appId);
+let nebulaId = stateTagApp.$read('sta.nebulaId');
+if(_.isUndefined(nebulaId)){
+    nebulaId = uuidv4();
+    stateTagApp.$write('sta.nebulaId', nebulaId);
 }
 
 initGlobalStateWatchers(stateTagApp["storage"]);

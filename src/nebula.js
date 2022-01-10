@@ -13,7 +13,7 @@ Vue.use(VueGun, {
 stateTagApp['$nebula'] = function(key, val){
     Vue.prototype.$gun
         .get(stateTagApp.namespace)
-        .get(stateTagApp.$read('sta.appId'))
+        .get(stateTagApp.$read('sta.nebulaId'))
         .put({[key]: val}, function (ack) {
             //console.log(ack);
         });
@@ -22,7 +22,7 @@ stateTagApp['$nebula'] = function(key, val){
 stateTagApp['$onNebula'] = function(key, callback){
     Vue.prototype.$gun
         .get(stateTagApp.namespace)
-        .get(stateTagApp.$read('sta.appId'))
+        .get(stateTagApp.$read('sta.nebulaId'))
         .get(key)
         .on(callback, {change: true});
 }
