@@ -2,7 +2,6 @@ stateTagApp.log(stateTagApp.namespace.concat("-html: #BUILD#"));
 
 import _ from "lodash";
 import Vue from "vue";
-//import router from './router';
 import vueCustomElement from "vue-custom-element";
 
 stateTagApp.Vue = Vue;
@@ -54,15 +53,9 @@ Vue.filter("date", function (value, format) {
 import state from "./state";
 import router from "./routes"
 
-let nebulaId = stateTagApp.$read('sta.nebulaId');
-if(_.isUndefined(nebulaId)){
-    nebulaId = uuidv4();
-    stateTagApp.$write('sta.nebulaId', nebulaId);
-}
-
 initGlobalStateWatchers(stateTagApp["storage"]);
 initGlobalSocketWatchers();
-initGlobalNebulaWatchers();
+initGlobalNebulaWatchers(uuidv4, _);
 
 import XHtml from "./x-html";
 Vue.use(XHtml);
