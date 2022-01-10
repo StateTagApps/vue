@@ -10,37 +10,32 @@ Vue.use(VueGun, {
     peers: [stateTagApp['nebula'].concat(['/g', 'un'].join(''))]
 });
 
-stateTagApp['$onNebula'] = function(key, callback){
-    Vue.prototype.$gun
-        .get(stateTagApp.namespace)
-        .get(key)
-        .on(callback, {change: true});
-}
-
 stateTagApp['$nebula'] = function(key, val){
     Vue.prototype.$gun
         .get(stateTagApp.namespace)
+        .get(stateTagApp.$read('sta.appId'))
         .put({[key]: val}, function (ack) {
             //console.log(ack);
         });
 }
+
+stateTagApp['$onNebula'] = function(key, callback){
+    Vue.prototype.$gun
+        .get(stateTagApp.namespace)
+        .get(stateTagApp.$read('sta.appId'))
+        .get(key)
+        .on(callback, {change: true});
+}
+
+
 
 export default {
     install(Vue, opts) {
         Vue.mixin({
             methods: {
                 //https://gun.eco/docs/API#-core-api-
-                $nebula: function (key, val) {
-                    this.$gun.get(stateTagApp.namespace)
-                        .put({[key]: val}, function (ack) {
-                            //console.log(ack);
-                        });
-                },
-                $onNebula: function (key, callback){
-                    this.$gun.get(stateTagApp.namespace)
-                        .get(key)
-                        .on(callback, {change: true});
-                }
+                $nebula: stateTagApp['$nebula'],
+                $onNebula: stateTagApp['$onNebula'],
             }
         })
     }
