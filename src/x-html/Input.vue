@@ -53,10 +53,12 @@ export default {
     }
   },
 
-  mounted: function (){
-    this.$onNebula(this.locus, function (val){
-      console.log(val);
-    })
+  mounted: function () {
+    if (this.service == 'nebula') {
+      this.$onNebula(this.locus, function (val) {
+        //console.log(val);
+      });
+    }
   }
 }
 </script>
