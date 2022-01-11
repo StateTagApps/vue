@@ -1,6 +1,6 @@
 <template>
   <qrcode-vue
-      :value="serviceContent"
+      :value="value"
       :size="size"
 
       :render-as="renderAs"
@@ -23,6 +23,11 @@ export default {
   },
 
   props: {
+    template: {
+      type: String,
+      default: null
+    },
+
     size: {
       // pixels
       type: Number,
@@ -57,6 +62,18 @@ export default {
       type: String,
       default: '#ffffff'
     },
+  },
+
+  computed: {
+    value: function (){
+      if(!_.isNull(this.template)){
+
+        return this.template
+            .replace('{SERVICE_CONTENT}', this.serviceContent);
+      }
+
+      return this.serviceContent;
+    }
   }
 }
 </script>
