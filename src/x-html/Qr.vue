@@ -68,8 +68,12 @@ export default {
     value: function (){
       if(!_.isNull(this.template)){
 
-        return this.template
-            .replace('{SERVICE_CONTENT}', this.serviceContent);
+        var valueWorker = 'valueWorker = `'
+        .concat(this.template.replace('{', '${'))
+        .concat('`');
+
+        eval(valueWorker);
+        return valueWorker;
       }
 
       return this.serviceContent;

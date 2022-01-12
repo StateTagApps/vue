@@ -37,7 +37,7 @@ if (!_.isUndefined(stateTagApp.socket)) {
     stateTagApp.socket = stateTagApp.socket[process.env.NODE_ENV];
     stateTagApp['socketIo'] = io(stateTagApp.socket);
 
-    stateTagApp['$onSocket'] = function(event, handler){
+    stateTagApp['$onSocket'] = function (event, handler) {
         stateTagApp['socketIo'].on(event, handler);
     }
 
@@ -58,6 +58,7 @@ initGlobalSocketWatchers();
 initGlobalNebulaWatchers(uuidv4, _);
 
 import XHtml from "./x-html";
+
 Vue.use(XHtml);
 import Manifest from "@/x-html/manifest";
 

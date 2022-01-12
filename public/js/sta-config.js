@@ -8,6 +8,11 @@ const stateTagApp = {
         date: 'Y-MM-DD',
     },
 
+    base: window.location.protocol
+        .concat('://')
+        .concat(window.location.host)
+        .concat('/#/'),
+
     api: {
         production: "https://data.StateTagApps.com",
         development: "https://data.StateTagApps.com"
