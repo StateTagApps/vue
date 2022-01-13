@@ -50,6 +50,17 @@ Vue.filter("date", function (value, format) {
     return stateTagApp.Vue.moment(date).format(format)
 });
 
+Vue.filter('dynamicFilters', function(value, filters) {
+
+    for(let i in filters){
+        let name = filters[i].name;
+        let args = filters[i].args || [];
+        value = Vue.filter(name)(value, ...args);
+    }
+
+    return value;
+});
+
 import state from "./state";
 import router from "./routes"
 

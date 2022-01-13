@@ -1,6 +1,6 @@
 const stateTagApp = {
     namespace: 'x',
-    disk: [localStorage, sessionStorage][0],
+    disk: ['blackhole', localStorage, sessionStorage][1],
     cacheTimeout: 1 * 60 * 1000,
     log: console.log,
 

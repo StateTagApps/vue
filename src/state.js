@@ -2,15 +2,21 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersist from "vuex-persist";
 
-const vuexPersist = new VuexPersist({
-    key: stateTagApp['namespace'].concat("-#BUILD#"),
-    storage: stateTagApp.disk
-});
-
 Vue.use(Vuex);
 
+let plugins = [];
+
+if (stateTagApp.disk != 'blackhole') {
+    const vuexPersist = new VuexPersist({
+        key: stateTagApp['namespace'].concat("-#BUILD#"),
+        storage: stateTagApp.disk
+    });
+
+    plugins.push(vuexPersist.plugin);
+}
+
 stateTagApp["storage"] = new Vuex.Store({
-    plugins: [vuexPersist.plugin],
+    plugins,
 
     state: {...stateTagApp["state"]},
 
