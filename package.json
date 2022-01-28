@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --no-clean",
-    "deploy": "git -C dist pull && yarn build && git -C dist add . && git -C dist commit -m 'deploy' && git -C dist push --force origin master"
+    "deploy": "git -C dist pull && yarn build && git -C dist add . && git -C dist commit -m 'deploy' && git -C dist push --force origin master",
+    "ssl": "export NODE_OPTIONS=--openssl-legacy-provider"
   },
   "dependencies": {
     "axios": "^0.24.0",
