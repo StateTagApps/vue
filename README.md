@@ -12,7 +12,7 @@ Single Page Apps (SPAs) are great.  Just one question... what do we need the pag
 
 It's kind of insane.  We should have been doing it this way all along.
 
-## Documentation, Videos, Licensing/Namespacing Walkthru... 
+## Documentation, Videos, Licensing/Namespacing, Walkthru... 
 Certain implementations using this technique are restricted by US business process patents.  However, licensing is cheap & simple.
 
 [Go to StateTagApps.com for developer information, training, and licensing walkthru.](https://StateTagApps.com)
