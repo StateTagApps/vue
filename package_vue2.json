@@ -1,0 +1,40 @@
+{
+  "name": "sta-vue",
+  "version": "1.0.10",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --no-clean",
+    "deploy": "git -C dist pull && yarn build && git -C dist add . && git -C dist commit -m 'deploy' && git -C dist push --force origin master",
+    "fix-ssl": "export NODE_OPTIONS=--openssl-legacy-provider"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "axios-extensions": "^3.1.3",
+    "lodash": "^4.17.21",
+    "qrcode.vue": "1.*",
+    "socket.io-client": "^2.3.1",
+    "uuid": "^8.3.2",
+    "vue": "^2.6.14",
+    "vue-axios": "^2.1.5",
+    "vue-custom-element": "^3.3.0",
+    "vue-gun": "^0.0.3",
+    "vue-moment": "^4.1.0",
+    "vue-nprogress": "^0.2.0",
+    "vue-router": "^3.5.3",
+    "vue-socket.io-extended": "^4.2.0",
+    "vuex": "^3.6.2",
+    "vuex-persist": "^3.1.3"
+  },
+  "devDependencies": {
+    "@babel/runtime-corejs3": "^7.16.5",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-preset-env": "^1.7.0",
+    "core-js": "^3.20.0",
+    "style-loader": "^1.2.1",
+    "vue-template-compiler": "^2.6.14",
+    "webpack": "^5.88.2"
+  }
+}
