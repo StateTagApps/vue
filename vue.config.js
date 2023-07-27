@@ -3,12 +3,7 @@ const webpack = require("webpack");
 module.exports = {
   lintOnSave: false,
   filenameHashing: false,
-  pages: {
-    html: {
-      entry: 'src/main.js',
-      filename: 'index.html'
-    }
-  },
+  transpileDependencies: [],
   configureWebpack: {
     plugins: [
       new webpack.optimize.LimitChunkCountPlugin({
