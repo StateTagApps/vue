@@ -1,6 +1,7 @@
 {
   "name": "sta-vue",
   "version": "1.0.10",
+  "license": "UNLICENSED",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -35,6 +36,6 @@
     "core-js": "^3.20.0",
     "style-loader": "^1.2.1",
     "vue-template-compiler": "^2.6.14",
-    "webpack": "^5.88.2"
+    "webpack": "^5.91.0"
   }
 }
