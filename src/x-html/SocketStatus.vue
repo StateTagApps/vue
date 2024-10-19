@@ -6,7 +6,7 @@
 export default {
   computed: {
     status: function (){
-      return (this.$socket.connected)? 'connected' : 'NOT connected';
+      return (this.$socket.connected)? 'connected' : 'disconnected';
     }
   }
 }
